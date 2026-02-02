@@ -1,10 +1,13 @@
 ---
-// import Footer from '../components/Footer.astro';
-  import '@fontsource-variable/inter';                          
-  import '@fontsource/cormorant-garamond/400.css';              
-  import '@fontsource/cormorant-garamond/500.css';              
-  import '@fontsource/cormorant-garamond/600.css';              
-  import '@fontsource-variable/geist-mono';                     
+ import Footer from '../components/common/Footer.astro';
+ import Nav from '../components/common/Nav.astro'
+  import '@fontsource/jost/300.css';                                                                       
+  import '@fontsource/jost/400.css';                                                                       
+  import '@fontsource/jost/500.css';                                                                       
+  import '@fontsource/cormorant-garamond/300.css';                                                         
+  import '@fontsource/cormorant-garamond/400.css';                                                         
+  import '@fontsource/cormorant-garamond/500.css';                                                         
+  import '@fontsource/cormorant-garamond/600.css';               
 import '../styles/global.css'
 const { title } = Astro.props;
 ---
@@ -15,15 +18,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Posts</a>
-      <a href="#">Contact</a>
-    </nav>
-    <h1>{title}</h1>
-    <article>
+    <Nav />
+    <main>
       <slot /> <!-- your content is injected here -->
-    </article>
-    <!-- <Footer /> -->
+      </main>
+    <Footer />
   </body>
 </html>
