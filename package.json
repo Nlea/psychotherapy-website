@@ -6,12 +6,20 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "dependencies": {
-    "@fontsource-variable/geist-mono": "^5.2.7",
-    "@fontsource-variable/inter": "^5.2.8",
     "@fontsource/cormorant-garamond": "^5.2.11",
+    "@fontsource/jost": "^5.2.8",
     "astro": "^5.16.15"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^8.54.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-astro": "^1.5.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
