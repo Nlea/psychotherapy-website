@@ -1,7 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+
+const heroContent = {                                                                                    
+    title: "Psychologischer Psychotherapeut",                                                            
+    name: "Dr. Manuel Mennig",                                                                             
+    description: "Ich biete einfühlsame, wissenschaftlich fundierte Psychotherapie für Menschen, die sich mit den Herausforderungen des Lebens auseinandersetzen. Gemeinsam arbeiten wir an nachhaltiger Veränderung."                                                                
+  }; 
 ---
 
 <BaseLayout title = "Home Page">
-<p>Hier kommen später die Section-Komponenten </p>
+    <Hero {...heroContent} />
+
 </BaseLayout>

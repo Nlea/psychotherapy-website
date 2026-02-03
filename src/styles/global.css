@@ -113,3 +113,36 @@ h4 {
   font-size: 1.125rem;
   font-weight: 400;
 }
+
+.btn {  display: inline-block;                                                                                   
+  padding: 0.75rem 2rem;                                                                                   
+  font-size: 0.875rem;                                                                                     
+  font-weight: 400;                                                                                        
+  text-transform: uppercase;                                                                               
+  letter-spacing: 0.12em;                                                                                  
+  color: var(--background);                                                                                
+  background: var(--foreground);                                                                           
+  text-decoration: none;                                                                                   
+  transition: all 0.2s ease; 
+} 
+
+.btn:hover {
+  background: var(--secondary-foreground);
+}
+
+/* Base section padding */                                                                               
+section {                                                                                                
+  padding: var(--sp-24) var(--sp-6);                                                                                
+}                                                                                                        
+                                                                                                         
+@media (min-width: 768px) {                                                                              
+  section {                                                                                              
+    padding: var(--sp-32) var(--sp-6);                                                                                
+  }                                                                                                      
+}                                                                                                        
+                                                                                                         
+/* Container for max-width/centering */                                                                  
+.container {                                                                                             
+  max-width: 1152px;                                                                                     
+  margin: 0 auto;                                                                                        
+} 

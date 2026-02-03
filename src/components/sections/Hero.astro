@@ -1,0 +1,59 @@
+---
+ interface Props {                                                                                        
+    title: string;                                                                                         
+    name: string;                                                                                          
+    description: string;                                                                                                                                                                         
+  } 
+const { title, name, description } = Astro.props;
+---
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">{title}</p>
+            <h1 class="hero-title">{name}</h1>
+            <p class="hero-description">{description}</p>
+            <a href="#kontakt" class="btn">Termin vereinbaren</a>
+        </div>
+    </section>
+
+<style>
+.hero {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--sp-20) var(--sp-6);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 48rem;
+}
+
+.hero-eyebrow {
+    font-size: var(--sp-4);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted-foreground);
+    margin-bottom: var(--sp-6);
+}
+
+.hero-title {
+    line-height: 1.1;
+    margin-bottom: var(--sp-8);
+    text-wrap: balance;
+}
+
+.hero-description {
+    font-size: var(--sp-4);
+    line-height: 1.75;
+    color: var(--muted-foreground);
+    max-width: 36rem;
+    margin: 0 auto var(--sp-10);
+    font-weight: 300;
+}
+
+
+
+
+</style>
