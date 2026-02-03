@@ -1,15 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/sections/Hero.astro';
+import Quote from '../components/sections/Quote.astro';
 
-const heroContent = {                                                                                    
-    eyebrow: "Psychologischer Psychotherapeut",                                                            
-    name: "Dr. Manuel Mennig",                                                                             
-    description: "Ich biete einfühlsame, wissenschaftlich fundierte Psychotherapie für Menschen, die sich mit den Herausforderungen des Lebens auseinandersetzen. Gemeinsam arbeiten wir an nachhaltiger Veränderung."                                                                
-  }; 
+const heroContent = {
+    eyebrow: "Psychologischer Psychotherapeut",
+    name: "Dr. Manuel Mennig",
+    description: "Ich biete einfühlsame, wissenschaftlich fundierte Psychotherapie für Menschen, die sich mit den Herausforderungen des Lebens auseinandersetzen. Gemeinsam arbeiten wir an nachhaltiger Veränderung."
+  };
+
+const quoteContent = {
+  quote: "Zwischen Reiz und Reaktion liegt ein Raum. In diesem Raum liegt unsere Macht, unsere Reaktion zu wählen. In unserer Reaktion liegen unser Wachstum und unsere Freiheit.",
+  author: "Viktor Frankl"
+};
 ---
 
 <BaseLayout title = "Home Page">
     <Hero {...heroContent} />
-
+    <Quote {...quoteContent} />
 </BaseLayout>

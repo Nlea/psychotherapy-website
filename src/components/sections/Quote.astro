@@ -1,0 +1,45 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+}
+
+const { quote, author } = Astro.props;
+---
+
+<section class="quote-section">
+  <blockquote>
+    <p>{quote}</p>
+    <cite>— {author}</cite>
+  </blockquote>
+</section>
+
+<style>
+.quote-section {
+  background: var(--secondary);
+  padding: var(--sp-16) var(--sp-6);
+  text-align: center;
+}
+
+.quote-section blockquote {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.quote-section p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--foreground);
+  line-height: 1.8;
+  margin-bottom: var(--sp-4);
+}
+
+.quote-section cite {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-style: normal;
+  color: var(--muted-foreground);
+}
+</style>
