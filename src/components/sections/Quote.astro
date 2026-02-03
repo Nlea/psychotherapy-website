@@ -8,10 +8,12 @@ const { quote, author } = Astro.props;
 ---
 
 <section class="quote-section">
-  <blockquote>
-    <p>{quote}</p>
-    <cite>— {author}</cite>
-  </blockquote>
+  <figure>
+    <blockquote>
+      <p>{quote}</p>
+    </blockquote>
+    <figcaption>— {author}</figcaption>
+  </figure>
 </section>
 
 <style>
@@ -21,13 +23,13 @@ const { quote, author } = Astro.props;
   text-align: center;
 }
 
-.quote-section blockquote {
+.quote-section figure {
   max-width: 42rem;
   margin: 0 auto;
+  font-family: var(--font-serif);
 }
 
 .quote-section p {
-  font-family: var(--font-serif);
   font-size: clamp(1.125rem, 2vw, 1.25rem);
   font-style: italic;
   font-weight: 400;
@@ -36,10 +38,8 @@ const { quote, author } = Astro.props;
   margin-bottom: var(--sp-4);
 }
 
-.quote-section cite {
-  font-family: var(--font-serif);
+.quote-section figcaption {
   font-size: 0.9375rem;
-  font-style: normal;
   color: var(--muted-foreground);
 }
 </style>
