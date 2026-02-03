@@ -1,17 +1,19 @@
 ---
  interface Props {                                                                                        
-    title: string;                                                                                         
+    eyebrow: string;                                                                                         
     name: string;                                                                                          
-    description: string;                                                                                                                                                                         
+    description: string;   
+    ctaText?: string;
+    ctaHref?: string;                                                                                                                                                                      
   } 
-const { title, name, description } = Astro.props;
+const { eyebrow, name, description, ctaText = "Termin vereinbaren", ctaHref = "#kontakt" } = Astro.props;
 ---
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-eyebrow">{title}</p>
+            <p class="hero-eyebrow">{eyebrow}</p>
             <h1 class="hero-title">{name}</h1>
             <p class="hero-description">{description}</p>
-            <a href="#kontakt" class="btn">Termin vereinbaren</a>
+            <a href={ctaHref} class="btn">{ctaText}</a>
         </div>
     </section>
 
@@ -30,7 +32,7 @@ const { title, name, description } = Astro.props;
 }
 
 .hero-eyebrow {
-    font-size: var(--sp-4);
+    font-size: 0.875rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -45,15 +47,14 @@ const { title, name, description } = Astro.props;
 }
 
 .hero-description {
-    font-size: var(--sp-4);
+    font-size: 1rem;
     line-height: 1.75;
     color: var(--muted-foreground);
     max-width: 36rem;
     margin: 0 auto var(--sp-10);
-    font-weight: 300;
 }
 
-
-
-
+.hero-content {                                                                                          
+    animation: reveal 0.6s ease-out;                                                                       
+  }   
 </style>

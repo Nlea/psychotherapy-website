@@ -146,3 +146,14 @@ section {
   max-width: 1152px;                                                                                     
   margin: 0 auto;                                                                                        
 } 
+
+@keyframes reveal {                                                                                      
+  from {                                                                                                 
+    opacity: 0;                                                                                          
+    transform: translateY(20px);                                                                         
+  }                                                                                                      
+  to {                                                                                                   
+    opacity: 1;                                                                                          
+    transform: translateY(0);                                                                            
+  }                                                                                                      
+}  
