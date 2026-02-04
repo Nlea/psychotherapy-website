@@ -10,7 +10,7 @@ const { eyebrow, name, description, ctaText = "Termin vereinbaren", ctaHref = "#
 ---
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-eyebrow">{eyebrow}</p>
+            <p class="eyebrow">{eyebrow}</p>
             <h1 class="hero-title">{name}</h1>
             <p class="hero-description">{description}</p>
             <a href={ctaHref} class="btn">{ctaText}</a>
@@ -31,14 +31,6 @@ const { eyebrow, name, description, ctaText = "Termin vereinbaren", ctaHref = "#
     max-width: 48rem;
 }
 
-.hero-eyebrow {
-    font-size: 0.875rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--muted-foreground);
-    margin-bottom: var(--sp-6);
-}
 
 .hero-title {
     line-height: 1.1;

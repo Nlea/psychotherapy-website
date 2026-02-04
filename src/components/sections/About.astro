@@ -2,23 +2,23 @@
  interface Props {                                                                                                                                                
     ctaText?: string;
     ctaHref?: string; 
-    sectionTitle: string;
-    sectionDescription: string;
-    sectionPoints:{title: string;
+    aboutHeading: string;
+    aboutDescription: string;
+    aboutPoints:{title: string;
         text: string
     }[];
-    sectionQualificationsWeiterbildungenList: string[];
-    sectionQualificationsAusbildungList: string[];
+    aboutQualificationsWeiterbildungenList: string[];
+    aboutQualificationsAusbildungList: string[];
 
   } 
-const { ctaText = "Vollständige Vita", ctaHref = "/vita", sectionTitle, sectionDescription, sectionPoints, sectionQualificationsWeiterbildungenList, sectionQualificationsAusbildungList } = Astro.props;
+const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDescription, aboutPoints, aboutQualificationsWeiterbildungenList, aboutQualificationsAusbildungList } = Astro.props;
 ---
 <section class="about" id="ueber-mich">
     <div class="container">
         <div class="about-intro">
-            <p class="section-eyebrow">Über mich</p>
-            <h2 class="section-title">{sectionTitle}</h2>
-            <p>{sectionDescription}</p>
+            <p class="eyebrow">Über mich</p>
+            <h2 class="about-title">{aboutHeading}</h2>
+            <p>{aboutDescription}</p>
         </div>
         <div class="about-grid">
             <div class="about-photo">
@@ -29,7 +29,7 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", sectionTitle, section
             </div>
             <div class="about-points">                                                                                                          
                 <div class="prose">                                                                                                             
-                    {sectionPoints.map((point) => (                                                                                             
+                    {aboutPoints.map((point) => (                                                                                             
                         <p>                                                                                                                   
                             <strong>{point.title}:</strong> {point.text}
                         </p>
@@ -42,7 +42,7 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", sectionTitle, section
             <div>
                 <h3 class="qual-title">Ausbildung</h3>
                 <ul class="qual-list">
-                    {sectionQualificationsAusbildungList.map((qualification) => (
+                    {aboutQualificationsAusbildungList.map((qualification) => (
                         <li>{qualification}</li>
                     ))}
                 </ul>
@@ -50,7 +50,7 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", sectionTitle, section
             <div>
                 <h3 class="qual-title">Weiterbildungen</h3>
                 <ul class="qual-list">
-                    {sectionQualificationsWeiterbildungenList.map((qualification) => (
+                    {aboutQualificationsWeiterbildungenList.map((qualification) => (
                         <li>{qualification}</li>
                     ))}
                 </ul>
@@ -71,31 +71,6 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", sectionTitle, section
         text-align: center;
     }
 
-        .section-eyebrow {
-            text-align: center;
-            font-size: 0.875rem;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            margin-bottom: 1.5rem;
-        }
-
-        .prose {
-            color: var(--muted-foreground);
-            line-height: 1.75;
-        }
-
-        .prose p {
-            margin-bottom: 1rem;
-        }
-
-        .prose p:last-child {
-            margin-bottom: 0;
-        }
 
         .about-grid {
             display: grid;
