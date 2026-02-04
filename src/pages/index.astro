@@ -2,20 +2,42 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/sections/Hero.astro';
 import Quote from '../components/sections/Quote.astro';
+import About from '../components/sections/About.astro';
 
 const heroContent = {
     eyebrow: "Psychologischer Psychotherapeut",
     name: "Dr. Manuel Mennig",
-    description: "Ich biete einfühlsame, wissenschaftlich fundierte Psychotherapie für Menschen, die sich mit den Herausforderungen des Lebens auseinandersetzen. Gemeinsam arbeiten wir an nachhaltiger Veränderung."
+    description: "Mein Ziel ist es, dass Sie sich emotional sicher und fachlich bestens aufgehoben fühlen, um Ihre eigene Handlungsfähigkeit nachhaltig zurückzugewinnen."
   };
 
 const quoteContent = {
   quote: "Zwischen Reiz und Reaktion liegt ein Raum. In diesem Raum liegt unsere Macht, unsere Reaktion zu wählen. In unserer Reaktion liegen unser Wachstum und unsere Freiheit.",
   author: "Viktor Frankl"
 };
+
+const aboutContent = {
+  sectionTitle: "Fundierte Begleitung · Strukturierte Ruhe · Wärme in der Begegnung",
+  sectionDescription: "Ich werde oft als ein Mensch mit einer ruhigen, besonnenen Art wahrgenommen. Als Ruhepol in unseren Gesprächen biete ich Ihnen die nötige Stabilität, um auch schwierige Themen sicher anzugehen. Mir liegt viel daran, eine aufgeräumte Atmosphäre zu schaffen, in der wir die Komplexität Ihres Erlebens gemeinsam ordnen.",
+  sectionPoints: [{
+    title: "Analytisch und zugewandt",
+    text: "Mein Denken ist naturwissenschaftlich geprägt, ohne den Raum für Ihre Emotionen zu verlieren. Mit dieser analytischen Klarheit unterstütze  ich Sie dabei, den roten Faden in Ihrer Geschichte zu finden und das „Große Ganze“ im Blick zu behalten."
+  },
+  {
+    title: "Struktur und Leichtigkeit",
+    text: "Ich schätze eine klare Linie im Prozess. Dabei bin ich überzeugt, dass menschliche Wärme und eine Prise Humor auch schwere Prozesse ein Stück weit leichter machen können."
+  },{
+    title: "Wissenschaft und Empathie",
+    text: "Ich arbeite nach evidenzbasierten klinischen Standards. Diese Fachlichkeit ist für mich kein Widerspruch zu echtem Interesse – sie ist das sichere Fundament unserer Begegnung auf Augenhöhe"
+  }],
+
+  sectionQualificationsWeiterbildungenList: ["Gruppentherapie", "Entspannungsverfahren", "Schematherapie", "Compassion Focused Therapy (CFT)", "Imagery Rescripting and Reprocessing Therapy (IRRT)", "Emotionsfokussierte Therapie (EFT)", "Körperpsychotherapie"],
+  sectionQualificationsAusbildungList: ["Zulassung für Gruppentherapie und Entspannungsverfahren", "Promotion zum Dr. rer. nat. an der Philipps-Universität Marburg (Thema: Problematische Internetnutzung)", "Studium der Psychologie (B.Sc. und M.Sc.) an der Philipps-Universität Marburg"]
+
+}
 ---
 
 <BaseLayout title = "Home Page">
     <Hero {...heroContent} />
     <Quote {...quoteContent} />
+    <About {...aboutContent} />
 </BaseLayout>
