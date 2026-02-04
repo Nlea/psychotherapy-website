@@ -7,11 +7,11 @@
     aboutPoints:{title: string;
         text: string
     }[];
-    aboutQualificationsWeiterbildungenList: string[];
-    aboutQualificationsAusbildungList: string[];
+    aboutEducationList: string[];
+    aboutTrainingList: string[];
 
   } 
-const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDescription, aboutPoints, aboutQualificationsWeiterbildungenList, aboutQualificationsAusbildungList } = Astro.props;
+const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDescription, aboutPoints, aboutEducationList, aboutTrainingList } = Astro.props;
 ---
 <section class="about" id="ueber-mich">
     <div class="container">
@@ -42,7 +42,7 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
             <div>
                 <h3 class="qual-title">Ausbildung</h3>
                 <ul class="qual-list">
-                    {aboutQualificationsAusbildungList.map((qualification) => (
+                    {aboutEducationList.map((qualification) => (
                         <li>{qualification}</li>
                     ))}
                 </ul>
@@ -50,14 +50,14 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
             <div>
                 <h3 class="qual-title">Weiterbildungen</h3>
                 <ul class="qual-list">
-                    {aboutQualificationsWeiterbildungenList.map((qualification) => (
+                    {aboutTrainingList.map((qualification) => (
                         <li>{qualification}</li>
                     ))}
                 </ul>
             </div>
         </div>
 
-        <div style="margin-top: 2.5rem;">
+        <div class="about-cta">
             <a href={ctaHref} class="btn">{ctaText}</a>
         </div>
     </div>
@@ -104,6 +104,9 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
             max-width: 400px;
             margin: 0 auto;
         }
+        .about-cta {
+      margin-top: var(--sp-10);
+  }
         .qual-grid {
             margin-top: var(--sp-12);
             padding-top: var(--sp-8);
