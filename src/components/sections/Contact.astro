@@ -7,9 +7,10 @@ interface Props {
     phone: string;
     phoneDisplay: string;
     address: string;
+    addressLink?: string;
 }
 
-const { eyebrow, title, introText, email, phone, phoneDisplay, address } = Astro.props;
+const { eyebrow, title, introText, email, phone, phoneDisplay, address, addressLink } = Astro.props;
 ---
 
 <section class="contact" id="kontakt">
@@ -53,7 +54,11 @@ const { eyebrow, title, introText, email, phone, phoneDisplay, address } = Astro
                     </div>
                     <div>
                         <p class="contact-label">Adresse</p>
-                        <p class="contact-value">{address}</p>
+                        {addressLink ? (
+                            <a href={addressLink} target="_blank" rel="noopener noreferrer" class="contact-value">{address}</a>
+                        ) : (
+                            <p class="contact-value">{address}</p>
+                        )}
                     </div>
                 </div>
             </div>
@@ -115,7 +120,7 @@ const { eyebrow, title, introText, email, phone, phoneDisplay, address } = Astro
         font-size: 0.75rem;
         font-weight: 400;
         text-transform: uppercase;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.15em;
         color: var(--muted-foreground);
         margin-bottom: var(--sp-1);
     }
