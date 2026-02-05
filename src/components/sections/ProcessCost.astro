@@ -1,0 +1,205 @@
+---
+// Props kommen später
+---
+
+<section class="process-cost" id="ablauf">
+    <div class="container">
+        <div class="process-grid">
+
+            <!-- Linke Spalte: Ablauf -->
+            <div class="process-steps">
+                <p class="eyebrow process-eyebrow">Ablauf</p>
+                <h2>Der Weg zur Zusammenarbeit</h2>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Kontaktaufnahme</h3>
+                            <p>Nehmen Sie per E-Mail (bevorzugt) Kontakt zu mir auf oder hinterlassen Sie eine Nachricht auf meinem Anrufbeantworter.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Erstgespräch (Sprechstunde)</h3>
+                            <p>In 50 Minuten lernen wir uns kennen und klären, ob wir zusammenpassen.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Kennenlernphase (Probatorik)</h3>
+                            <p>In 2–4 Sitzungen vertiefen wir das Verständnis und entwickeln Ziele.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Therapiephase</h3>
+                            <p>Akut-, Kurz- oder Langzeittherapie – je nach Ihrem Bedarf.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rechte Spalte: Kosten -->
+            <div class="costs-card">
+                <p class="eyebrow process-eyebrow">Kosten</p>
+                <h2 class="costs-title">Honorar &amp; Sitzungen</h2>
+
+                <div class="price-list">
+                    <div class="price-item">
+                        <span>Gesetzliche Krankenversicherung</span>
+                        <span class="price">Kosten werden vollständig übernommen</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Private Krankenversicherung & Beihilfe</span>
+                        <span class="price">Je nach Tarif</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Selbstzahler:innen</span>
+                        <span class="price">GOP<br><small>(Gebührenordnung für Psychotherapeuten)</small></span>
+                    </div>
+                    <div class="price-item">
+                        <span>Coaching (50 Min.)</span>
+                        <span class="price">200 EUR (inkl. MwSt.)</span>
+                    </div>
+                    <div class="price-item price-item--last">
+                        <span>Workshops & Seminare</span>
+                        <span class="price">Nach Vereinbarung</span>
+                    </div>
+                </div>
+
+                <p class="costs-note">
+                    Als zugelassener Therapeut rechne ich direkt mit Ihrer gesetzlichen Krankenkasse ab. Bei privater Versicherung klären Sie die Kostenübernahme bitte vorab mit Ihrer Versicherung.                 </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .process-cost {
+        background: var(--secondary);
+    }
+
+    /* Grid Layout */
+    .process-grid {
+        display: grid;
+        gap: var(--sp-12);
+    }
+
+    @media (min-width: 768px) {
+        .process-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-16);
+        }
+    }
+
+    /* Process Steps */
+    .process-steps {
+        padding-top: var(--sp-8);
+    }
+
+    @media (min-width: 768px) {
+        .process-steps {
+            padding-top: var(--sp-10);
+        }
+    }
+
+    /* Eyebrow Override */
+    .process-eyebrow {
+        text-align: left;
+        margin-bottom: var(--sp-4);
+    }
+
+    /* Steps */
+    .steps {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-8);
+        margin-top: var(--sp-10);
+    }
+
+    .step {
+        display: flex;
+        gap: var(--sp-5);
+    }
+
+    .step-number {
+        flex-shrink: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--background);
+        border: 1px solid var(--border);
+        font-family: var(--font-serif);
+        font-size: 1.125rem;
+    }
+
+    .step-content {
+        padding-top: var(--sp-1);
+    }
+
+    /* Costs Card */
+    .costs-card {
+        background: var(--card);
+        padding: var(--sp-8);
+        height: fit-content;
+    }
+
+    @media (min-width: 768px) {
+        .costs-card {
+            padding: var(--sp-10);
+        }
+    }
+
+    h2 {
+        text-align: left;
+    }
+
+    /* Price List */
+    .price-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .price-item {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--sp-4);
+        padding: var(--sp-4) 0;
+        border-bottom: 1px solid var(--border);
+        color: var(--muted-foreground);
+    }
+
+    .price-item span:first-child {
+        flex: 1;
+    }
+
+    .price-item--last {
+        border-bottom: none;
+    }
+
+    .price {
+        font-weight: 400;
+        color: var(--accent);
+        text-align: left;
+        flex-basis: 40%;
+        flex-shrink: 1;
+    }
+
+    /* Costs Note */
+    .costs-note {
+        margin-top: var(--sp-8);
+        padding-top: var(--sp-6);
+        border-top: 1px solid var(--border);
+    }
+</style>
