@@ -1,0 +1,133 @@
+---
+interface Props {
+    eyebrow: string;
+    title: string;
+    introText: string;
+    email: string;
+    phone: string;
+    phoneDisplay: string;
+    address: string;
+}
+
+const { eyebrow, title, introText, email, phone, phoneDisplay, address } = Astro.props;
+---
+
+<section class="contact" id="kontakt">
+    <div class="container">
+        <div class="contact-standalone">
+            <p class="eyebrow">{eyebrow}</p>
+            <h2>{title}</h2>
+            <div class="prose contact-intro">
+                <p>{introText}</p>
+            </div>
+            <div class="contact-info-row">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="contact-label">E-Mail</p>
+                        <a href={`mailto:${email}`} class="contact-value">{email}</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="contact-label">Telefon</p>
+                        <a href={`tel:${phone}`} class="contact-value">{phoneDisplay}</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="contact-label">Adresse</p>
+                        <p class="contact-value">{address}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact {
+        background: var(--background);
+    }
+
+    .contact-standalone {
+        text-align: center;
+        max-width: 48rem;
+        margin: 0 auto;
+    }
+
+    .contact-intro {
+        max-width: 36rem;
+        margin: 0 auto var(--sp-10);
+    }
+
+    .contact-info-row {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-8);
+        margin-top: var(--sp-8);
+    }
+
+    @media (min-width: 768px) {
+        .contact-info-row {
+            flex-direction: row;
+            justify-content: center;
+            gap: var(--sp-12);
+        }
+    }
+
+    .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--sp-3);
+        text-align: center;
+    }
+
+    .contact-icon {
+        padding: var(--sp-3);
+        background: var(--secondary);
+    }
+
+    .contact-icon svg {
+        width: 20px;
+        height: 20px;
+        color: var(--muted-foreground);
+    }
+
+    .contact-label {
+        font-size: 0.75rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted-foreground);
+        margin-bottom: var(--sp-1);
+    }
+
+    .contact-value {
+        font-size: 1rem;
+        color: var(--foreground);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    a.contact-value:hover {
+        color: var(--muted-foreground);
+    }
+</style>

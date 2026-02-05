@@ -4,6 +4,7 @@ import Hero from '../components/sections/Hero.astro';
 import Quote from '../components/sections/Quote.astro';
 import About from '../components/sections/About.astro';
 import Services from '../components/sections/Services.astro';
+import Contact from '../components/sections/Contact.astro';
 
 const heroContent = {
     eyebrow: "Psychologischer Psychotherapeut",
@@ -73,6 +74,16 @@ const servicesContent = {
     ctaHref: "#kontakt"
   }
 }
+
+const contactContent = {
+  eyebrow: "Kontakt",
+  title: "Kontaktieren Sie mich",
+  introText: "Der erste Schritt zur Therapie kann sich überwältigend anfühlen, aber Sie müssen ihn nicht allein gehen. Am besten erreichen Sie mich per E-Mail. Für ein Erstgespräch können Sie auch die Terminservicestelle (116117) nutzen.",
+  email: "praxis@manuelmennig.de",
+  phone: "+4915153789326",
+  phoneDisplay: "0151 – 537 893 26",
+  address: "Okerstr. 12, 12049 Berlin"
+}
 ---
 
 <BaseLayout title = "Home Page">
@@ -80,4 +91,5 @@ const servicesContent = {
     <Quote {...quoteContent} />
     <About {...aboutContent} />
     <Services {...servicesContent} />
+    <Contact {...contactContent} />
 </BaseLayout>
