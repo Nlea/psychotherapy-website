@@ -1,16 +1,14 @@
 ---
- interface Props {                                                                                                                                                
+interface Props {
     ctaText?: string;
-    ctaHref?: string; 
+    ctaHref?: string;
     aboutHeading: string;
     aboutDescription: string;
-    aboutPoints:{title: string;
-        text: string
-    }[];
+    aboutPoints: { title: string; text: string; }[];
     aboutEducationList: string[];
     aboutTrainingList: string[];
+}
 
-  } 
 const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDescription, aboutPoints, aboutEducationList, aboutTrainingList } = Astro.props;
 ---
 <section class="about" id="ueber-mich">
@@ -70,8 +68,7 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
         text-align: center;
     }
 
-
-        .about-grid {
+    .about-grid {
             display: grid;
             gap: var(--sp-8);
         }
@@ -84,17 +81,11 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
             }
         }
 
-        .about-photo {
-            position: relative;
-        }
+    .about-photo {
+        position: relative;
+    }
 
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .about-photo-inner {
+    .about-photo-inner {
             aspect-ratio: 1;
             background: var(--muted);
             overflow: hidden;
