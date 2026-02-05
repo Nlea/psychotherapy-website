@@ -103,7 +103,7 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
     }
 
     .bento-card {
-      padding: 2rem;
+      padding: var(--sp-8);
       border: 1px solid var(--border);
       background-color: var(--card);
       display: flex;
@@ -112,7 +112,7 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
 
     @media (min-width: 768px) {
       .bento-card {
-        padding: 2.5rem;
+        padding: var(--sp-10);
       }
     }
 
@@ -207,6 +207,7 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
       font-size: var(--text-sm);
       text-align: left;
       font-family: inherit;
+      color: var(--foreground);
   }
 
   .accordion-btn:hover {
