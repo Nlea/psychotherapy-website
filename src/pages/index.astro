@@ -33,7 +33,45 @@ const aboutContent = {
 
   aboutTrainingList: ["Gruppentherapie", "Entspannungsverfahren", "Schematherapie", "Compassion Focused Therapy (CFT)", "Imagery Rescripting and Reprocessing Therapy (IRRT)", "Emotionsfokussierte Therapie (EFT)", "Körperpsychotherapie"],
   aboutEducationList: ["Zulassung für Gruppentherapie und Entspannungsverfahren", "Promotion zum Dr. rer. nat. an der Philipps-Universität Marburg (Thema: Problematische Internetnutzung)", "Studium der Psychologie (B.Sc. und M.Sc.) an der Philipps-Universität Marburg"]
+}
 
+const servicesContent = {
+  eyebrow: "Angebote",
+  title: "So kann ich Sie unterstützen",
+  psychotherapie: {
+    label: "Psychotherapie",
+    title: "Einzel- & Gruppentherapie",
+    description: "Mein Angebot umfasst die Behandlung des gesamten Spektrums der psychischer Erkrankungen in zwei Settings, die sich auch ergänzen können.",
+    subsections: [
+      {
+        title: "Einzeltherapie",
+        text: "In der Einzeltherapie steht Ihre persönliche Geschichte im Mittelpunkt. Sie erhalten einen geschützten, diskreten Raum, um offen über belastende Themen zu sprechen. Auf Basis einer fundierten Diagnostik entwickeln wir gemeinsam Strategien, die exakt auf Ihre spezifischen Herausforderungen zugeschnitten sind. Ziel ist es, neue Perspektiven zu eröffnen und Ihre Handlungsfähigkeit im Alltag nachhaltig zu festigen."
+      },
+      {
+        title: "Gruppentherapie",
+        text: "Die Gruppentherapie bietet einen besonderen Rahmen für zwischenmenschliche Lernerfahrungen. In einer kleinen, sorgfältig zusammengestellten Gruppe erleben Sie, dass Sie mit Ihren Herausforderungen nicht allein sind. Der Austausch ermöglicht gegenseitige Unterstützung und die Erprobung neuer Verhaltensweisen in einem sicheren sozialen Umfeld.",
+        note: "Hinweis: Die Wartezeiten für einen Platz in der Gruppentherapie sind oft kürzer als für Einzeltherapien."
+      }
+    ]
+  },
+  coaching: {
+    label: "Coaching",
+    title: "Beratung & Begleitung",
+    description: "Psychologisch fundierte Begleitung für Menschen, die ihre mentale Klarheit präventiv stärken möchten.",
+    items: [
+      { title: "Resilienz & Performance", content: "Stärkung der psychischen Widerstandskraft und nachhaltige Leistungsfähigkeit ohne Burnout." },
+      { title: "Klarheit & Entscheidung", content: "Unterstützung bei wichtigen Lebensentscheidungen und dem Finden von Orientierung in komplexen Situationen." },
+      { title: "Digitale Souveränität", content: "Gesunder Umgang mit digitalen Medien und Technologien im Alltag und Beruf." },
+      { title: "Selbstwert & Abgrenzung", content: "Stärkung des Selbstbewusstseins und Entwicklung gesunder Grenzen in Beziehungen." }
+    ]
+  },
+  seminare: {
+    label: "Für Institute",
+    title: "Workshops & Seminare",
+    description: "Maßgeschneiderte Formate für Universitäten, Ausbildungsinstitute und Unternehmen.",
+    ctaText: "Anfrage",
+    ctaHref: "#kontakt"
+  }
 }
 ---
 
@@ -41,5 +79,5 @@ const aboutContent = {
     <Hero {...heroContent} />
     <Quote {...quoteContent} />
     <About {...aboutContent} />
-    <Services>
+    <Services {...servicesContent} />
 </BaseLayout>

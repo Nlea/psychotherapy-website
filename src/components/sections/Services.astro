@@ -1,99 +1,86 @@
 ---
+interface Props {
+    eyebrow: string;
+    title: string;
+    psychotherapie: {
+        label: string;
+        title: string;
+        description: string;
+        subsections: {
+            title: string;
+            text: string;
+            note?: string;
+        }[];
+    };
+    coaching: {
+        label: string;
+        title: string;
+        description: string;
+        items: {
+            title: string;
+            content: string;
+        }[];
+    };
+    seminare: {
+        label: string;
+        title: string;
+        description: string;
+        ctaText: string;
+        ctaHref: string;
+    };
+}
+
+const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
 ---
 <section class="section section-services" id="angebote">
     <div class="container">
-        <p class="eyebrow">Angebote</p>
-        <h2>So kann ich Sie unterstützen</h2>
-      
+        <p class="eyebrow">{eyebrow}</p>
+        <h2>{title}</h2>
+
     <div class="bento-grid">
         <!-- Psychotherapie -->
         <div class="bento-card bento-card--large">
-            <p class="eyebrow card-eyebrow">Psychotherapie</p>
-            <h3 class="card-title">Einzel- & Gruppentherapie </h3>
-            <p class="card-text">Mein Angebot umfasst die Behandlung des gesamten Spektrums der psychischer Erkrankungen in zwei Settings, die sich auch ergänzen können.</p>
+            <p class="eyebrow card-eyebrow">{psychotherapie.label}</p>
+            <h3 class="card-title">{psychotherapie.title}</h3>
+            <p class="card-text">{psychotherapie.description}</p>
             <div class="card-content">
-                <div class ="subsection">
-                    <h4>Einzeltherapie</h4>
-                    <p>In der Einzeltherapie steht Ihre persönliche Geschichte im Mittelpunkt. 
-                        Sie erhalten einen geschützten, diskreten Raum, um offen über belastende 
-                        Themen zu sprechen. Auf Basis einer fundierten Diagnostik entwickeln wir 
-                        gemeinsam Strategien, die exakt auf Ihre spezifischen Herausforderungen 
-                        zugeschnitten sind. Ziel ist es, neue Perspektiven zu eröffnen und Ihre 
-                        Handlungsfähigkeit im Alltag nachhaltig zu festigen.</p>
-                </div> 
-                <div class ="subsection subsection-secondary">
-                    <h4>Gruppentherapie</h4>
-                    <p> Die Gruppentherapie bietet einen besonderen Rahmen für zwischenmenschliche 
-                        Lernerfahrungen. In einer kleinen, sorgfältig zusammengestellten Gruppe 
-                        erleben Sie, dass Sie mit Ihren Herausforderungen nicht allein sind. Der 
-                        Austausch ermöglicht gegenseitige Unterstützung und die Erprobung neuer 
-                        Verhaltensweisen in einem sicheren sozialen Umfeld.</p>
-                        <p class="subsection-note">Hinweis: Die Wartezeiten für einen Platz in der Gruppentherapie sind oft kürzer als für Einzeltherapien.</p>
-                </div> 
+                {psychotherapie.subsections.map((sub, index) => (
+                    <div class={`subsection ${index > 0 ? 'subsection-secondary' : ''}`}>
+                        <h4>{sub.title}</h4>
+                        <p>{sub.text}</p>
+                        {sub.note && <p class="subsection-note">{sub.note}</p>}
+                    </div>
+                ))}
             </div>
         </div>
-<!-- Coaching -->
+        <!-- Coaching -->
         <div class="bento-card bento-card--small">
-            <p class="eyebrow card-eyebrow">Coaching</p>
-            <h3 class="card-title">Beratung & Begleitung</h3>
-            <p> Psychologisch fundierte Begleitung für Menschen, die ihre mentale Klarheit präventiv stärken möchten. </p>
-            <!--Accordion --> 
+            <p class="eyebrow card-eyebrow">{coaching.label}</p>
+            <h3 class="card-title">{coaching.title}</h3>
+            <p>{coaching.description}</p>
             <div class="accordion">
-                <!-- Item 1 -->
-                <div class="accordion-item">
-                    <button class="accordion-btn">
-                        Resilienz & Performance
-                        <span class="accordion-icon">+</span>                        
-                    </button>
-                    <div class="accordion-body">
-                        <p>Stärkung der psychischen Widerstandskraft und nachhaltige Leistungsfähigkeit ohne Burnout.</p>
+                {coaching.items.map((item) => (
+                    <div class="accordion-item">
+                        <button class="accordion-btn">
+                            {item.title}
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-body">
+                            <p>{item.content}</p>
+                        </div>
                     </div>
-                </div>
-                 <!-- Item 2 -->
-                 <div class="accordion-item">
-                    <button class="accordion-btn">
-                        Klarheit & Entscheidung
-                        <span class="accordion-icon">+</span>                        
-                    </button>
-                    <div class="accordion-body">
-                        <p>Unterstützung bei wichtigen Lebensentscheidungen und dem Finden von Orientierung in komplexen Situationen.
-                        </p>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="accordion-item">
-                    <button class="accordion-btn">
-                        Digitale Souveränität
-                        <span class="accordion-icon">+</span>                        
-                    </button>
-                    <div class="accordion-body">
-                        <p>Gesunder Umgang mit digitalen Medien und Technologien im Alltag und Beruf.</p>
-                    </div>
-                </div>
-                   <!-- Item 4 -->
-                   <div class="accordion-item">
-                    <button class="accordion-btn">
-                        Selbstwert & Abgrenzung
-                        <span class="accordion-icon">+</span>                        
-                    </button>
-                    <div class="accordion-body">
-                        <p>Stärkung des Selbstbewusstseins und Entwicklung gesunder Grenzen in Beziehungen.</p>
-                    </div>
-                </div>
-
+                ))}
             </div>
-        
-        
         </div>
-<!-- Seminare -->
+        <!-- Seminare -->
         <div class="bento-card bento-card--small-secondary">
-            <p class="eyebrow card-eyebrow">Für Institute</p>
-            <h3 class="card-title">Workshops & Seminare</h3>
-            <p> Maßgeschneiderte Formate für Universitäten, Ausbildungsinstitute 
-                und Unternehmen. </p>
-                <a href="#kontact" class="cta-link">
-                    Anfrage
-                <span>→</span> </a>
+            <p class="eyebrow card-eyebrow">{seminare.label}</p>
+            <h3 class="card-title">{seminare.title}</h3>
+            <p>{seminare.description}</p>
+            <a href={seminare.ctaHref} class="cta-link">
+                {seminare.ctaText}
+                <span>→</span>
+            </a>
         </div>
     </div>
     </div>
