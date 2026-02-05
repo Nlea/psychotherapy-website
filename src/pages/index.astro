@@ -5,6 +5,7 @@ import Quote from '../components/sections/Quote.astro';
 import About from '../components/sections/About.astro';
 import Services from '../components/sections/Services.astro';
 import Contact from '../components/sections/Contact.astro';
+import ProcessCost from '../components/sections/ProcessCost.astro';
 
 const heroContent = {
     eyebrow: "Psychologischer Psychotherapeut",
@@ -75,10 +76,34 @@ const servicesContent = {
   }
 }
 
+const processCostContent = {
+  process: {
+    eyebrow: "Ablauf",
+    title: "Der Weg zur Zusammenarbeit",
+    steps: [
+      { title: "Kontaktaufnahme", description: "Nehmen Sie per E-Mail (bevorzugt) Kontakt zu mir auf oder hinterlassen Sie eine Nachricht auf meinem Anrufbeantworter." },
+      { title: "Erstgespräch (Sprechstunde)", description: "In 50 Minuten lernen wir uns kennen und klären, ob wir zusammenpassen." },
+      { title: "Kennenlernphase (Probatorik)", description: "In 2–4 Sitzungen vertiefen wir das Verständnis und entwickeln Ziele." },
+      { title: "Therapiephase", description: "Akut-, Kurz- oder Langzeittherapie – je nach Ihrem Bedarf." }
+    ]
+  },
+  costs: {
+    eyebrow: "Kosten",
+    title: "Honorar & Sitzungen",
+    items: [
+      { label: "Gesetzliche Krankenversicherung", price: "Kosten werden vollständig übernommen" },
+      { label: "Private Krankenversicherung & Beihilfe", price: "Je nach Tarif" },
+      { label: "Selbstzahler:innen", price: "GOP<br><small>(Gebührenordnung für Psychotherapeuten)</small>" },
+      { label: "Coaching (50 Min.)", price: "200 EUR (inkl. MwSt.)" },
+      { label: "Workshops & Seminare", price: "Nach Vereinbarung" }
+    ],
+    note: "Als zugelassener Therapeut rechne ich direkt mit Ihrer gesetzlichen Krankenkasse ab. Bei privater Versicherung klären Sie die Kostenübernahme bitte vorab mit Ihrer Versicherung."
+  }
+}
+
 const contactContent = {
-  eyebrow: "Kontakt",
-  title: "Kontaktieren Sie mich",
-  introText: "Der erste Schritt zur Therapie kann sich überwältigend anfühlen, aber Sie müssen ihn nicht allein gehen. Am besten erreichen Sie mich per E-Mail. Für ein Erstgespräch können Sie auch die Terminservicestelle (116117) nutzen.",
+  title: "Kontakt",
+  introText: "Am besten erreichen Sie mich per E-Mail. Für ein Erstgespräch können Sie auch die Terminservicestelle (116117) nutzen.",
   email: "praxis@manuelmennig.de",
   phone: "+4915153789326",
   phoneDisplay: "0151 – 537 893 26",
@@ -92,5 +117,6 @@ const contactContent = {
     <Quote {...quoteContent} />
     <About {...aboutContent} />
     <Services {...servicesContent} />
+    <ProcessCost {...processCostContent} />
     <Contact {...contactContent} />
 </BaseLayout>
