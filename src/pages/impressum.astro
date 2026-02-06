@@ -6,7 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="legal-page">
     <h2>Impressum</h2>
 
-    <section>
+    <div class="legal-section">
       <h3>Verantwortlich für den Inhalt (gem. § 55 Abs. 2 RStV)</h3>
       <p>
         Psychotherapeutische Praxis<br>
@@ -15,23 +15,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         12049 Berlin<br>
         Kassenärztliche Praxis
       </p>
-    </section>
+    </div>
 
-    <section>
+    <div class="legal-section">
       <h3>Kontakt</h3>
       <p>
         Email: <a href="mailto:praxis@manuelmennig.de">praxis@manuelmennig.de</a><br>
         Website: <a href="https://www.manuelmennig.de/">www.manuelmennig.de</a>
       </p>
-    </section>
+    </div>
 
-    <section>
+    <div class="legal-section">
       <h3>Gesetzliche Berufsbezeichnung</h3>
       <p>Psychologischer Psychotherapeut</p>
       <p><strong>Staat der die Berufsbezeichnung verliehen hat:</strong> Bundesrepublik Deutschland</p>
-    </section>
+    </div>
 
-    <section>
+    <div class="legal-section">
       <h3>Kammer</h3>
       <p>
         Kammer für Psychologische Psychotherapeuten und Kinder- und Jugendlichenpsychotherapeuten im Land Berlin, KöR<br>
@@ -40,9 +40,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Tel. <a href="tel:+493088714000">030 / 887140-0</a><br>
         <a href="http://www.psychotherapeutenkammer-berlin.de/">www.psychotherapeutenkammer-berlin.de</a>
       </p>
-    </section>
+    </div>
 
-    <section>
+    <div class="legal-section">
       <h3>Aufsichtsbehörde</h3>
       <p>
         Kassenärztliche Vereinigung Berlin<br>
@@ -51,23 +51,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a href="https://www.kvberlin.de/">www.kvberlin.de</a>
       </p>
       <p>Eingetragen bei der Kassenärztlichen Vereinigung Schleswig-Holstein Arztregister Nr. 16316</p>
-    </section>
+    </div>
 
-    <section>
+    <div class="legal-section">
       <h3>Berufsrechtliche Regelung</h3>
       <p>
         Berufsordnung der Kammer für Psychologische Psychotherapeuten und Kinder- und Jugendlichenpsychotherapeuten im Land Berlin<br>
         <a href="http://www2.psychotherapeutenkammer-berlin.de/uploads/berufsodurchgeschrtextfassung_13_09_2016.pdf">Berufsordnung (PDF)</a>
       </p>
-    </section>
+    </div>
 
-    <section>
+    <div class="legal-section">
       <h3>Ust.-ID-Nr.</h3>
       <p>Entfällt, da psychotherapeutische Leistungen als heilberufliche Leistungen mehrwertsteuerbefreit sind (§ 4 Nr. 14 UStG)</p>
       <p>Aufgrund meiner Approbation kann ich mit privaten Krankenkassen und mit Beihilfestellen abrechnen, ansonsten ist Privatliquidation möglich. Das Stundenhonorar (50 Min.) beträgt laut GOP (Gebührenordnung für Psychotherapeuten) üblicherweise 100,55 €. Bei schwierigen Fällen und mit besonderer Begründung kann auch ein höherer Steigerungssatz abgerechnet werden.</p>
-    </section>
+    </div>
 
-    <section>
+    <div class="legal-section">
       <h2>Disclaimer (Haftungsausschluss)</h2>
 
       <h3>1. Haftung für Inhalte</h3>
@@ -78,7 +78,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <h3>3. Urheberrecht</h3>
       <p>Die durch die Diensteanbieter, deren Mitarbeiter und beauftragte Dritte erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der vorherigen schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden derartige Inhalte umgehend entfernen.</p>
-    </section>
+    </div>
   </div>
 </BaseLayout>
 
@@ -89,7 +89,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding: var(--sp-8) var(--sp-6);
   }
 
-  .legal-page section,
+  .legal-page .legal-section,
   .legal-page > h2,
   .legal-page > p {
     max-width: 65ch;
@@ -97,10 +97,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .legal-page h2 {
     margin-bottom: var(--sp-8);
+    text-align: left;
   }
 
-  .legal-page section {
-    margin-bottom: var(--sp-10);
+  .legal-page .legal-section {
+    margin-bottom: var(--sp-8);
   }
 
   .legal-page h3 {

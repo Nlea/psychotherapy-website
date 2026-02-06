@@ -5,11 +5,16 @@
   <header class="nav-wrapper">                                                                                  
     <nav class="nav">                                                                                      
       <a href="/" class="nav-brand">Dr. Manuel Mennig</a>                                                  
-      <ul class="nav-menu">                                                                                
-        <li><a href="/#ueber-mich">Über mich</a></li>                                                       
-        <li><a href="/#angebote">Angebote</a></li>                                                          
-        <li><a href="/#ablauf">Ablauf & Kosten</a></li>                                                          
-        <li><a href="/#kontakt">Kontakt</a></li>                                                            
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="/#ueber-mich">Über mich</a></li>
+        <li><a href="/#angebote">Angebote</a></li>
+        <li><a href="/#ablauf-kosten">Ablauf & Kosten</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
       </ul>                                                                                                
     </nav>                                                                                                 
   </header> 
@@ -21,7 +26,7 @@
     left: var(--sp-2);                                                                                               
     right: var(--sp-2);                                                                                              
     z-index: 50;                                                                                           
-    background: rgba(245, 247, 248, 0.9);                                                                  
+    background: color-mix(in srgb, var(--background) 90%, transparent);
     backdrop-filter: blur(8px);                                                                            
   }                                                                                                        
 
@@ -64,4 +69,93 @@
             color: var(--foreground);
         }
 
+        /* Hamburger button */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--sp-1);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--sp-2);
+        }
+
+        .nav-toggle-line {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--foreground);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Animate to X when active */
+        .nav-toggle.active .nav-toggle-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-toggle.active .nav-toggle-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active .nav-toggle-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile styles */
+        @media (max-width: 767px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: color-mix(in srgb, var(--background) 95%, transparent);
+                backdrop-filter: blur(8px);
+                padding: var(--sp-6);
+                gap: var(--sp-6);
+                border-top: 1px solid var(--border);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+        }
 </style>
+
+<script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.nav-menu');
+
+    toggle?.addEventListener('click', () => {
+        const isOpen = menu?.classList.toggle('active');
+        toggle.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    function closeMenu() {
+        menu?.classList.remove('active');
+        toggle?.classList.remove('active');
+        toggle?.setAttribute('aria-expanded', 'false');
+    }
+
+    // Close menu when clicking a link
+    menu?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav') && menu?.classList.contains('active')) closeMenu();
+    });
+</script>

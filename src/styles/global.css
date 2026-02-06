@@ -65,8 +65,14 @@ html, body {
 }
 
 html {
-  font-size: 17px;
+  font-size: 16px;
   scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 17px;
+  }
 }
 
 body {
@@ -106,6 +112,7 @@ h1 {
 h2 {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   margin-bottom: var(--sp-6);
+  text-align: center;
 }
 
 h3 {
@@ -144,8 +151,10 @@ p {
   margin-bottom: 0;
 }
 
-.btn {  display: inline-block;                                                                                   
-  padding: 0.75rem 2rem;                                                                                   
+.btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  min-height: 44px;                                                                                   
   font-size: var(--text-sm);                                                                                      
   font-weight: 400;                                                                                        
   text-transform: uppercase;                                                                               
@@ -162,15 +171,21 @@ p {
   background: var(--secondary-foreground);
 }
 
-/* Base section padding */                                                                               
-section {                                                                                                
-  padding: var(--sp-24) var(--sp-6);                                                                                
-}                                                                                                        
-                                                                                                         
-@media (min-width: 768px) {                                                                              
-  section {                                                                                              
-    padding: var(--sp-32) var(--sp-6);                                                                                
-  }                                                                                                      
+/* Base section padding */
+section {
+  padding: var(--sp-16) var(--sp-6);
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: var(--sp-24) var(--sp-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding: var(--sp-32) var(--sp-6);
+  }
 }                                                                                                        
                                                                                                          
 /* Container for max-width/centering */
@@ -179,13 +194,63 @@ section {
   margin: 0 auto;
 }
 
-@keyframes reveal {                                                                                      
-  from {                                                                                                 
-    opacity: 0;                                                                                          
-    transform: translateY(20px);                                                                         
-  }                                                                                                      
-  to {                                                                                                   
-    opacity: 1;                                                                                          
-    transform: translateY(0);                                                                            
-  }                                                                                                      
-}  
+/* Accordion */
+.accordion-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.accordion-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--sp-4) 0;
+    min-height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--text-sm);
+    text-align: left;
+    font-family: inherit;
+    color: var(--foreground);
+}
+
+.accordion-btn:hover {
+    opacity: 0.7;
+}
+
+.accordion-icon {
+    transition: transform 0.2s ease;
+}
+
+.accordion-body {
+    display: none;
+}
+
+.accordion-item.active .accordion-body {
+    display: block;
+    padding-bottom: var(--sp-3);
+    font-size: var(--text-sm);
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(45deg);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

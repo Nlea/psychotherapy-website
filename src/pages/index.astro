@@ -6,6 +6,7 @@ import About from '../components/sections/About.astro';
 import Services from '../components/sections/Services.astro';
 import Contact from '../components/sections/Contact.astro';
 import ProcessCost from '../components/sections/ProcessCost.astro';
+import Approach from '../components/sections/Approach.astro';
 
 const heroContent = {
     eyebrow: "Psychologischer Psychotherapeut",
@@ -101,6 +102,37 @@ const processCostContent = {
   }
 }
 
+const approachContent = {
+  eyebrow: "Ansatz",
+  title: "Meine Arbeitsweise",
+  description: "Eine wirksame Therapie verbindet für mich zwei Ebenen: ein tiefes Verständnis für Ihre Geschichte und die konkrete Veränderung im Hier und Jetzt. Mein Ziel ist eine fundierte Begleitung auf Augenhöhe, die Ihnen die nötige Struktur und Ruhe gibt, um Ihre Handlungsfähigkeit und Lebensqualität nachhaltig zurückzugewinnen.",
+  main: {
+    label: "Hauptverfahren",
+    title: "Moderne Kognitive Verhaltenstherapie",
+    description: "Die Basis meiner Arbeit ist die Kognitive Verhaltenstherapie (KVT) – ein wissenschaftlich fundiertes Verfahren, das für seine Transparenz und hohe Wirksamkeit bekannt ist. Entgegen dem Vorurteil, die KVT sei \u201Eoberflächlich\u201C oder konzentriere sich nur auf Symptome, zeigt die moderne Forschung: Ihre Effekte sind tiefgreifend und setzen an der Wurzel unseres Erlebens an.",
+    items: [
+      {
+        title: "Perspektiven und Erleben",
+        text: "Im Zentrum stehen Ihre inneren Bewertungsmuster. Das bedeutet nicht, dass belastende Ereignisse oder Lebensumstände nicht schwer wiegen – im Gegenteil: Ihr Erleben und Ihre Belastung haben ihre volle Berechtigung. Doch oft entwickeln wir im Laufe des Lebens automatische Muster im Denken und Fühlen, die uns in schwierigen Phasen festsetzen können. Wir analysieren gemeinsam, wie diese Überzeugungen entstanden sind und warum sie Ihnen heute vielleicht im Weg stehen."
+      },
+      {
+        title: "Vom Verstehen zum Handeln",
+        text: "Ein tiefes Verständnis der eigenen Geschichte ist wichtig, doch: Verstehen allein führt selten zur Veränderung. Wirkliche Erleichterung entsteht erst, wenn wir den Mut finden, im Hier und Jetzt neue Erfahrungen zu machen. Das Gehirn lernt durch Erleben: Nachhaltige Veränderung braucht neue Wege im Alltag. Wir entwickeln daher gemeinsam konkrete Strategien, mit denen Sie Ihre Handlungsfähigkeit Schritt für Schritt zurückgewinnen und langjährige Blockaden lösen können."
+      }
+    ]
+  },
+  secondary: {
+    title: "Integrative Arbeitsweise",
+    description: "Kein Mensch und keine Lebenslage passt in ein starres Raster. Deshalb arbeite ich integrativ und bilde mich kontinuierlich fort. Mein Anspruch ist es, verschiedene wissenschaftlich fundierte Methoden so zu kombinieren, dass sie genau zu Ihrem Erleben passen. Dort, wo ein rein logischer Zugang an Grenzen stößt, ergänze ich die Therapie um emotionale und körperorientierte Ansätze der sogenannten \u201EDritten Welle\u201C:",
+    methods: [
+      { title: "Schematherapie", text: "Tief verwurzelte Lebensmuster und Prägungen verstehen und verändern – besonders wenn belastende Erfahrungen aus der Vergangenheit nachwirken." },
+      { title: "Emotionsfokussierte & Körperpsychotherapeutische Ansätze", text: "Um den Zugang zum eigenen Erleben zu stärken und emotionale Blockaden spürbar zu lösen." },
+      { title: "ACT & Compassion Focused Therapy (CFT)", text: "Zur Förderung von Akzeptanz und der Entwicklung eines stabilisierenden, mitfühlenden Umgangs mit sich selbst." },
+      { title: "IRRT (Imagery Rescripting)", text: "Zur emotionalen Neubewertung belastender Erinnerungen mithilfe innerer Bilder." }
+    ]
+  }
+}
+
 const contactContent = {
   title: "Kontakt",
   introText: "Am besten erreichen Sie mich per E-Mail. Für ein Erstgespräch können Sie auch die Terminservicestelle (116117) nutzen.",
@@ -116,6 +148,7 @@ const contactContent = {
     <Hero {...heroContent} />
     <Quote {...quoteContent} />
     <About {...aboutContent} />
+    <Approach {...approachContent} />
     <Services {...servicesContent} />
     <ProcessCost {...processCostContent} />
     <Contact {...contactContent} />

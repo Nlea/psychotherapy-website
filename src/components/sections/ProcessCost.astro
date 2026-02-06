@@ -16,7 +16,7 @@ interface Props {
 const { process, costs } = Astro.props;
 ---
 
-<section class="process-cost" id="ablauf">
+<section class="process-cost" id="ablauf-kosten">
     <div class="container">
         <div class="process-grid">
 
@@ -151,11 +151,19 @@ const { process, costs } = Astro.props;
 
     .price-item {
         display: flex;
-        justify-content: space-between;
-        gap: var(--sp-4);
+        flex-direction: column;
+        gap: var(--sp-1);
         padding: var(--sp-4) 0;
         border-bottom: 1px solid var(--border);
         color: var(--muted-foreground);
+    }
+
+    @media (min-width: 768px) {
+        .price-item {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: var(--sp-4);
+        }
     }
 
     .price-item span:first-child {
@@ -170,8 +178,13 @@ const { process, costs } = Astro.props;
         font-weight: 400;
         color: var(--accent);
         text-align: left;
-        flex-basis: 40%;
-        flex-shrink: 1;
+    }
+
+    @media (min-width: 768px) {
+        .price {
+            flex-basis: 40%;
+            flex-shrink: 1;
+        }
     }
 
     .price small {

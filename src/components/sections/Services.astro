@@ -87,9 +87,6 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
 </section>
 
 <style>
-    .section-services{
-        background-color: var(--secondary);
-    }
 /* Bento Grid */
 .bento-grid {
     display: grid;
@@ -129,7 +126,7 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
     }
 
     .bento-card--small-secondary {
-        background-color: var(--muted);
+        background-color: var(--secondary);
     }
     .card-text {
         margin-bottom: var(--sp-6);
@@ -157,13 +154,15 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
       color: var(--accent);
   }
                                                              
-  .cta-link {                                                                                             
-      display: inline-flex;                                                                               
-      align-items: center;                                                                                
-      font-size: var(--text-sm);                                              
+  .cta-link {
+      display: inline-flex;
+      align-items: center;
+      font-size: var(--text-sm);
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      margin-top: auto;  /* drückt den Link nach unten in der Card */
+      margin-top: auto;
+      padding: var(--sp-3) 0;
+      min-height: 44px;
       color: inherit;
       text-decoration: none;
       transition: opacity 0.2s ease;
@@ -186,73 +185,8 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
         margin-bottom: var(--sp-4);
     }
 
-      /* Accordion */
+      /* Accordion (base styles in global.css) */
   .accordion {
       margin-top: auto;
   }
-
-  .accordion-item {
-      border-bottom: 1px solid var(--border);
-  }
-
-  .accordion-btn {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--sp-3) 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: var(--text-sm);
-      text-align: left;
-      font-family: inherit;
-      color: var(--foreground);
-  }
-
-  .accordion-btn:hover {
-      opacity: 0.7;
-  }
-
-  .accordion-icon {
-      transition: transform 0.2s ease;
-  }
-
-  .accordion-body {
-      display: none;  /* versteckt */
-  }
-
-  /* Wenn aktiv → Content zeigen */
-  .accordion-item.active .accordion-body {
-      display: block;
-      padding-bottom: var(--sp-3);
-      font-size: var(--text-sm);
-  }
-
-  .accordion-item.active .accordion-icon {
-      transform: rotate(45deg);  /* + wird zu × */
-  }
-    
-    
-    </style>
-
-<script>                                                                                                
-    document.querySelectorAll('.accordion-btn').forEach(button => {                                       
-      button.addEventListener('click', () => {                                                            
-        const item = button.parentElement;                                                              
-        if (!item) return;
-
-        const isActive = item.classList.contains('active');
-
-        // close all items
-        document.querySelectorAll('.accordion-item').forEach(i => {
-          i.classList.remove('active');
-        });
-
-        // when not active, open the item
-        if (!isActive) {
-          item.classList.add('active');
-        }
-      });
-    });
-  </script>
+</style>
