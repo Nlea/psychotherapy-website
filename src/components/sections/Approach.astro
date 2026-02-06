@@ -55,7 +55,7 @@ const { eyebrow, title, description, main, secondary } = Astro.props;
                 <div class="accordion">
                     {secondary.methods.map((method) => (
                         <div class="accordion-item">
-                            <button class="accordion-btn">
+                            <button class="accordion-btn" aria-expanded="false">
                                 {method.title}
                                 <span class="accordion-icon">+</span>
                             </button>

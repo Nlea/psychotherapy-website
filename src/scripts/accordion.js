@@ -9,11 +9,13 @@ document.querySelectorAll('.accordion-btn').forEach(button => {
     const accordion = item.closest('.accordion');
     accordion.querySelectorAll('.accordion-item').forEach(i => {
       i.classList.remove('active');
+      i.querySelector('.accordion-btn')?.setAttribute('aria-expanded', 'false');
     });
 
     // when not active, open the item
     if (!isActive) {
       item.classList.add('active');
+      button.setAttribute('aria-expanded', 'true');
     }
   });
 });
