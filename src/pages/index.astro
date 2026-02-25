@@ -11,7 +11,7 @@ import Approach from '../components/sections/Approach.astro';
 const heroContent = {
     eyebrow: "Psychologischer Psychotherapeut",
     name: "Dr. Manuel Mennig",
-    description: "Mein Ziel ist es, dass Sie sich emotional sicher und fachlich bestens aufgehoben fühlen, um Ihre eigene Handlungsfähigkeit nachhaltig zurückzugewinnen."
+    //description: "Mein Ziel ist es, dass Sie sich emotional sicher und fachlich bestens aufgehoben fühlen, um Ihre eigene Handlungsfähigkeit nachhaltig zurückzugewinnen."
   };
 
 const quoteContent = {
@@ -31,11 +31,24 @@ const aboutContent = {
     text: "Ich schätze eine klare Linie im Prozess. Dabei bin ich überzeugt, dass menschliche Wärme und eine Prise Humor auch schwere Prozesse ein Stück weit leichter machen können."
   },{
     title: "Wissenschaft und Empathie",
-    text: "Ich arbeite nach evidenzbasierten klinischen Standards. Diese Fachlichkeit ist für mich kein Widerspruch zu echtem Interesse – sie ist das sichere Fundament unserer Begegnung auf Augenhöhe"
+    text: "Ich arbeite nach evidenzbasierten klinischen Standards. Diese Fachlichkeit ist für mich kein Widerspruch zu echtem Interesse – sie ist das sichere Fundament unserer Begegnung auf Augenhöhe."
   }],
 
   aboutTrainingList: ["Gruppentherapie", "Entspannungsverfahren", "Schematherapie", "Compassion Focused Therapy (CFT)", "Imagery Rescripting and Reprocessing Therapy (IRRT)", "Emotionsfokussierte Therapie (EFT)", "Körperpsychotherapie"],
-  aboutEducationList: ["Zulassung für Gruppentherapie und Entspannungsverfahren", "Promotion zum Dr. rer. nat. an der Philipps-Universität Marburg (Thema: Problematische Internetnutzung)", "Studium der Psychologie (B.Sc. und M.Sc.) an der Philipps-Universität Marburg"]
+  aboutEducationList: [                                                                                                     
+    {             
+      title: "Approbation zum Psychologischen Psychotherapeuten",                                                           
+      subtitle: "Kognitive Verhaltenstherapie (IPAM Marburg)"                                                               
+    },
+    {
+      title: "Promotion zum Dr. rer. nat.",
+      subtitle: "Philipps-Universität Marburg | Thema: Problematische Internetnutzung"
+    },
+    {
+      title: "Studium der Psychologie (M.Sc. & B.Sc.)",
+      subtitle: "Philipps-Universität Marburg"
+    }
+  ]
 }
 
 const servicesContent = {

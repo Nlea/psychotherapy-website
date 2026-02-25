@@ -2,18 +2,21 @@
  interface Props {                                                                                        
     eyebrow: string;                                                                                         
     name: string;                                                                                          
-    description: string;   
-    ctaText?: string;
-    ctaHref?: string;                                                                                                                                                                      
+    //description: string;   
+    //ctaText?: string;
+    //ctaHref?: string;                                                                                                                                                                      
   } 
-const { eyebrow, name, description, ctaText = "Termin vereinbaren", ctaHref = "#kontakt" } = Astro.props;
+//const { eyebrow, name, description, ctaText = "Termin vereinbaren", ctaHref = "#kontakt" } = Astro.props;
+const { eyebrow, name } = Astro.props;
+
 ---
     <section class="hero">
         <div class="hero-content">
-            <p class="eyebrow">{eyebrow}</p>
             <h1 class="hero-title">{name}</h1>
-            <p class="hero-description">{description}</p>
-            <a href={ctaHref} class="btn">{ctaText}</a>
+            <p class="eyebrow">{eyebrow}</p>
+
+           <!-- <p class="hero-description">{description}</p> -->
+            <!-- <a href={ctaHref} class="btn">{ctaText}</a> -->
         </div>
     </section>
 
@@ -25,6 +28,8 @@ const { eyebrow, name, description, ctaText = "Termin vereinbaren", ctaHref = "#
     justify-content: center;
     padding: var(--sp-20) var(--sp-6);
     text-align: center;
+    background:
+        linear-gradient(to bottom, var(--background) 0%, #C5CED6 50%, var(--secondary) 100%);
 }
 
 .hero-content {

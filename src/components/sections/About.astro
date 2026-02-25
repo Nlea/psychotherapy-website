@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import aboutPhoto from '../../assets/profilePic.jpg';
 interface Props {
     ctaText?: string;
     ctaHref?: string;
     aboutHeading: string;
     aboutDescription: string;
     aboutPoints: { title: string; text: string; }[];
-    aboutEducationList: string[];
+    aboutEducationList: { title: string; subtitle: string; }[];
     aboutTrainingList: string[];
 }
 
@@ -21,8 +23,7 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
         <div class="about-grid">
             <div class="about-photo">
                 <div class="about-photo-inner">
-                    <div class="about-photo-placeholder">
-                    </div>
+                    <Image src={aboutPhoto} alt="Portrait" width={800} height={800} />
                 </div>
             </div>
             <div class="about-points">                                                                                                          
@@ -39,20 +40,24 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
         <div class="qual-grid">
             <div>
                 <h3 class="qual-title">Ausbildung</h3>
-                <ul class="qual-list">
-                    {aboutEducationList.map((qualification) => (
-                        <li>{qualification}</li>
-                    ))}
-                </ul>
+                <hr class="qual-rule" />
+                {aboutEducationList.map((entry) => (
+                    <div class="edu-entry">
+                        <p class="edu-title">{entry.title}</p>
+                        <p class="edu-subtitle">{entry.subtitle}</p>
+                        <hr class="qual-rule" />
+                    </div>
+                ))}
                 <a href={ctaHref} class="vita-link">
                     {ctaText}
                 </a>
             </div>
             <div>
                 <h3 class="qual-title">Weiterbildungen</h3>
-                <ul class="qual-list qual-list--two-col">
-                    {aboutTrainingList.map((qualification) => (
-                        <li>{qualification}</li>
+                <hr class="qual-rule" />
+                <ul class="qual-list">
+                    {aboutTrainingList.map((item) => (
+                        <li>{item}</li>
                     ))}
                 </ul>
             </div>
@@ -86,13 +91,24 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
     }
 
     .about-photo-inner {
+            position: relative;
             aspect-ratio: 1;
-            background: var(--muted);
             overflow: hidden;
             border-radius: 50%;
             width: 100%;
             max-width: 400px;
             margin: 0 auto;
+        }
+
+        .about-photo-inner img {
+            display: block;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform: scale(1.02);
         }
         .vita-link {
             display: inline-flex;
@@ -123,25 +139,41 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
 
         @media (min-width: 768px) {
             .qual-grid {
-                grid-template-columns: 1fr 2fr;
-            }
-
-            /* 5 rows = fits current 7 items (5 left, 2 right) */
-            .qual-list--two-col {
-                display: grid;
-                grid-template-rows: repeat(5, auto);
-                grid-auto-flow: column;
-                gap: 0 var(--sp-8);
+                grid-template-columns: 1fr 1fr;
             }
         }
-  
+
     .qual-title {
+        margin-bottom: var(--sp-3);
+    }
+
+    .qual-rule {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+    }
+
+    .edu-entry {
+        padding: var(--sp-4) 0;
+    }
+
+    .edu-title {
+        color: var(--foreground);
+        font-weight: 400;
+        margin-bottom: var(--sp-1);
+        line-height: 1.5;
+    }
+
+    .edu-subtitle {
+        font-size: var(--text-sm);
+        color: var(--muted-foreground);
         margin-bottom: var(--sp-4);
     }
 
     .qual-list {
         list-style: none;
         color: var(--muted-foreground);
+        margin-top: var(--sp-4);
     }
 
     .qual-list li {
@@ -152,13 +184,12 @@ const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDe
     }
 
     .qual-list li::before {
-        content: '';
+        content: '■';
         position: absolute;
         left: 0;
-        top: 0.9em;
-        width: 4px;
-        height: 4px;
-        background: var(--accent);
-        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.5em;
+        color: var(--accent);
     }
 </style>

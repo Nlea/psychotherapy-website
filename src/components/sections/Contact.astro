@@ -23,42 +23,47 @@ const { eyebrow, title, introText, email, phone, phoneDisplay, address, addressL
             </div>
             <div class="contact-info-row">
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <a href={`mailto:${email}`} class="contact-icon" aria-label="E-Mail senden">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="20" height="16" x="2" y="4" rx="2"/>
                             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                         </svg>
-                    </div>
+                    </a>
                     <div>
                         <p class="contact-label">E-Mail</p>
-                        <a href={`mailto:${email}`} class="contact-value">{email}</a>
+                        <p class="contact-value">{email}</p>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <a href={`tel:${phone}`} class="contact-icon" aria-label="Anrufen">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                         </svg>
-                    </div>
+                    </a>
                     <div>
                         <p class="contact-label">Telefon</p>
-                        <a href={`tel:${phone}`} class="contact-value">{phoneDisplay}</a>
+                        <p class="contact-value">{phoneDisplay}</p>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                    </div>
+                    {addressLink ? (
+                        <a href={addressLink} target="_blank" rel="noopener noreferrer" class="contact-icon" aria-label="Adresse auf Karte öffnen">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </a>
+                    ) : (
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                    )}
                     <div>
                         <p class="contact-label">Adresse</p>
-                        {addressLink ? (
-                            <a href={addressLink} target="_blank" rel="noopener noreferrer" class="contact-value">{address}</a>
-                        ) : (
-                            <p class="contact-value">{address}</p>
-                        )}
+                        <p class="contact-value">{address}</p>
                     </div>
                 </div>
             </div>
@@ -113,6 +118,11 @@ const { eyebrow, title, introText, email, phone, phoneDisplay, address, addressL
         min-height: 44px;
         padding: var(--sp-3);
         background: var(--secondary);
+        transition: background 0.2s ease;
+    }
+
+    a.contact-icon:hover {
+        background: var(--muted);
     }
 
     .contact-icon svg {

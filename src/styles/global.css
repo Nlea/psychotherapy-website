@@ -128,6 +128,7 @@ h4 {
 p {
   color: var(--muted-foreground);
   line-height: 1.75;
+  text-wrap: pretty;
 }
 
 .eyebrow {
@@ -190,7 +191,7 @@ section {
                                                                                                          
 /* Container for max-width/centering */
 .container {
-  max-width: 1152px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
