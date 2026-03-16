@@ -9,160 +9,236 @@ import ProcessCost from '../components/sections/ProcessCost.astro';
 import Approach from '../components/sections/Approach.astro';
 
 const heroContent = {
-    eyebrow: "Psychologischer Psychotherapeut",
-    name: "Dr. Manuel Mennig",
-    //description: "Mein Ziel ist es, dass Sie sich emotional sicher und fachlich bestens aufgehoben fühlen, um Ihre eigene Handlungsfähigkeit nachhaltig zurückzugewinnen."
-  };
+  eyebrow: 'Psychologischer Psychotherapeut',
+  name: 'Dr. Manuel Mennig',
+  //description: "Mein Ziel ist es, dass Sie sich emotional sicher und fachlich bestens aufgehoben fühlen, um Ihre eigene Handlungsfähigkeit nachhaltig zurückzugewinnen."
+};
 
 const quoteContent = {
-  quote: "Zwischen Reiz und Reaktion liegt ein Raum. In diesem Raum liegt unsere Macht, unsere Reaktion zu wählen. In unserer Reaktion liegen unser Wachstum und unsere Freiheit.",
-  author: "Viktor Frankl"
+  quote:
+    'Zwischen Reiz und Reaktion liegt ein Raum. In diesem Raum liegt unsere Macht, unsere Reaktion zu wählen. In unserer Reaktion liegen unser Wachstum und unsere Freiheit.',
+  author: 'Viktor Frankl',
 };
 
 const aboutContent = {
-  aboutHeading: "Fundierte Begleitung · Strukturierte Ruhe · Wärme in der Begegnung",
-  aboutDescription: "Ich werde oft als ein Mensch mit einer ruhigen, besonnenen Art wahrgenommen. Als Ruhepol in unseren Gesprächen biete ich Ihnen die nötige Stabilität, um auch schwierige Themen sicher anzugehen. Mir liegt viel daran, eine aufgeräumte Atmosphäre zu schaffen, in der wir die Komplexität Ihres Erlebens gemeinsam ordnen.",
-  aboutPoints: [{
-    title: "Analytisch und zugewandt",
-    text: "Mein Denken ist naturwissenschaftlich geprägt, ohne den Raum für Ihre Emotionen zu verlieren. Mit dieser analytischen Klarheit unterstütze  ich Sie dabei, den roten Faden in Ihrer Geschichte zu finden und das „Große Ganze“ im Blick zu behalten."
-  },
-  {
-    title: "Struktur und Leichtigkeit",
-    text: "Ich schätze eine klare Linie im Prozess. Dabei bin ich überzeugt, dass menschliche Wärme und eine Prise Humor auch schwere Prozesse ein Stück weit leichter machen können."
-  },{
-    title: "Wissenschaft und Empathie",
-    text: "Ich arbeite nach evidenzbasierten klinischen Standards. Diese Fachlichkeit ist für mich kein Widerspruch zu echtem Interesse – sie ist das sichere Fundament unserer Begegnung auf Augenhöhe."
-  }],
+  aboutHeading:
+    'Fundierte Begleitung · Strukturierte Ruhe · Wärme in der Begegnung',
+  aboutDescription:
+    'Ich werde oft als ein Mensch mit einer ruhigen, besonnenen Art wahrgenommen. Als Ruhepol in unseren Gesprächen biete ich Ihnen die nötige Stabilität, um auch schwierige Themen sicher anzugehen. Mir liegt viel daran, eine aufgeräumte Atmosphäre zu schaffen, in der wir die Komplexität Ihres Erlebens gemeinsam ordnen.',
+  aboutPoints: [
+    {
+      title: 'Analytisch und zugewandt',
+      text: 'Mein Denken ist naturwissenschaftlich geprägt, ohne den Raum für Ihre Emotionen zu verlieren. Mit dieser analytischen Klarheit unterstütze  ich Sie dabei, den roten Faden in Ihrer Geschichte zu finden und das „Große Ganze“ im Blick zu behalten.',
+    },
+    {
+      title: 'Struktur und Leichtigkeit',
+      text: 'Ich schätze eine klare Linie im Prozess. Dabei bin ich überzeugt, dass menschliche Wärme und eine Prise Humor auch schwere Prozesse ein Stück weit leichter machen können.',
+    },
+    {
+      title: 'Wissenschaft und Empathie',
+      text: 'Ich arbeite nach evidenzbasierten klinischen Standards. Diese Fachlichkeit ist für mich kein Widerspruch zu echtem Interesse – sie ist das sichere Fundament unserer Begegnung auf Augenhöhe.',
+    },
+  ],
 
-  aboutTrainingList: ["Gruppentherapie", "Entspannungsverfahren", "Schematherapie", "Compassion Focused Therapy (CFT)", "Imagery Rescripting and Reprocessing Therapy (IRRT)", "Emotionsfokussierte Therapie (EFT)", "Körperpsychotherapie"],
-  aboutEducationList: [                                                                                                     
-    {             
-      title: "Approbation zum Psychologischen Psychotherapeuten",                                                           
-      subtitle: "Kognitive Verhaltenstherapie (IPAM Marburg)"                                                               
+  aboutTrainingList: [
+    'Gruppentherapie',
+    'Entspannungsverfahren',
+    'Schematherapie',
+    'Compassion Focused Therapy (CFT)',
+    'Imagery Rescripting and Reprocessing Therapy (IRRT)',
+    'Emotionsfokussierte Therapie (EFT)',
+    'Körperpsychotherapie',
+  ],
+  aboutEducationList: [
+    {
+      title: 'Approbation zum Psychologischen Psychotherapeuten',
+      subtitle: 'Kognitive Verhaltenstherapie (IPAM Marburg)',
     },
     {
-      title: "Promotion zum Dr. rer. nat.",
-      subtitle: "Philipps-Universität Marburg | Thema: Problematische Internetnutzung"
+      title: 'Promotion zum Dr. rer. nat.',
+      subtitle:
+        'Philipps-Universität Marburg | Thema: Problematische Internetnutzung',
     },
     {
-      title: "Studium der Psychologie (M.Sc. & B.Sc.)",
-      subtitle: "Philipps-Universität Marburg"
-    }
-  ]
-}
+      title: 'Studium der Psychologie (M.Sc. & B.Sc.)',
+      subtitle: 'Philipps-Universität Marburg',
+    },
+  ],
+};
 
 const servicesContent = {
-  eyebrow: "Angebote",
-  title: "So kann ich Sie unterstützen",
+  eyebrow: 'Angebote',
+  title: 'So kann ich Sie unterstützen',
   psychotherapie: {
-    label: "Psychotherapie",
-    title: "Einzel- & Gruppentherapie",
-    description: "Mein Angebot umfasst die Behandlung des gesamten Spektrums der psychischer Erkrankungen in zwei Settings, die sich auch ergänzen können.",
+    label: 'Psychotherapie',
+    title: 'Einzel- & Gruppentherapie',
+    description:
+      'Mein Angebot umfasst die Behandlung des gesamten Spektrums der psychischer Erkrankungen in zwei Settings, die sich auch ergänzen können.',
     subsections: [
       {
-        title: "Einzeltherapie",
-        text: "In der Einzeltherapie steht Ihre persönliche Geschichte im Mittelpunkt. Sie erhalten einen geschützten, diskreten Raum, um offen über belastende Themen zu sprechen. Auf Basis einer fundierten Diagnostik entwickeln wir gemeinsam Strategien, die exakt auf Ihre spezifischen Herausforderungen zugeschnitten sind. Ziel ist es, neue Perspektiven zu eröffnen und Ihre Handlungsfähigkeit im Alltag nachhaltig zu festigen."
+        title: 'Einzeltherapie',
+        text: 'In der Einzeltherapie steht Ihre persönliche Geschichte im Mittelpunkt. Sie erhalten einen geschützten, diskreten Raum, um offen über belastende Themen zu sprechen. Auf Basis einer fundierten Diagnostik entwickeln wir gemeinsam Strategien, die exakt auf Ihre spezifischen Herausforderungen zugeschnitten sind. Ziel ist es, neue Perspektiven zu eröffnen und Ihre Handlungsfähigkeit im Alltag nachhaltig zu festigen.',
       },
       {
-        title: "Gruppentherapie",
-        text: "Die Gruppentherapie bietet einen besonderen Rahmen für zwischenmenschliche Lernerfahrungen. In einer kleinen, sorgfältig zusammengestellten Gruppe erleben Sie, dass Sie mit Ihren Herausforderungen nicht allein sind. Der Austausch ermöglicht gegenseitige Unterstützung und die Erprobung neuer Verhaltensweisen in einem sicheren sozialen Umfeld.",
-        note: "Hinweis: Die Wartezeiten für einen Platz in der Gruppentherapie sind oft kürzer als für Einzeltherapien."
-      }
-    ]
+        title: 'Gruppentherapie',
+        text: 'Die Gruppentherapie bietet einen besonderen Rahmen für zwischenmenschliche Lernerfahrungen. In einer kleinen, sorgfältig zusammengestellten Gruppe erleben Sie, dass Sie mit Ihren Herausforderungen nicht allein sind. Der Austausch ermöglicht gegenseitige Unterstützung und die Erprobung neuer Verhaltensweisen in einem sicheren sozialen Umfeld.',
+        note: 'Hinweis: Die Wartezeiten für einen Platz in der Gruppentherapie sind oft kürzer als für Einzeltherapien.',
+      },
+    ],
   },
   coaching: {
-    label: "Coaching",
-    title: "Beratung & Begleitung",
-    description: "Psychologisch fundierte Begleitung für Menschen, die ihre mentale Klarheit präventiv stärken möchten.",
+    label: 'Coaching',
+    title: 'Beratung & Begleitung',
+    description:
+      'Psychologisch fundierte Begleitung für Menschen, die ihre mentale Klarheit präventiv stärken möchten.',
     items: [
-      { title: "Resilienz & Performance", content: "Stärkung der psychischen Widerstandskraft und nachhaltige Leistungsfähigkeit ohne Burnout." },
-      { title: "Klarheit & Entscheidung", content: "Unterstützung bei wichtigen Lebensentscheidungen und dem Finden von Orientierung in komplexen Situationen." },
-      { title: "Digitale Souveränität", content: "Gesunder Umgang mit digitalen Medien und Technologien im Alltag und Beruf." },
-      { title: "Selbstwert & Abgrenzung", content: "Stärkung des Selbstbewusstseins und Entwicklung gesunder Grenzen in Beziehungen." }
-    ]
+      {
+        title: 'Resilienz & Performance',
+        content:
+          'Stärkung der psychischen Widerstandskraft und nachhaltige Leistungsfähigkeit ohne Burnout.',
+      },
+      {
+        title: 'Klarheit & Entscheidung',
+        content:
+          'Unterstützung bei wichtigen Lebensentscheidungen und dem Finden von Orientierung in komplexen Situationen.',
+      },
+      {
+        title: 'Digitale Souveränität',
+        content:
+          'Gesunder Umgang mit digitalen Medien und Technologien im Alltag und Beruf.',
+      },
+      {
+        title: 'Selbstwert & Abgrenzung',
+        content:
+          'Stärkung des Selbstbewusstseins und Entwicklung gesunder Grenzen in Beziehungen.',
+      },
+    ],
   },
   seminare: {
-    label: "Für Institute",
-    title: "Workshops & Seminare",
-    description: "Maßgeschneiderte Formate für Universitäten, Ausbildungsinstitute und Unternehmen.",
-    ctaText: "Anfrage",
-    ctaHref: "#kontakt"
-  }
-}
+    label: 'Für Institute',
+    title: 'Workshops & Seminare',
+    description:
+      'Maßgeschneiderte Formate für Universitäten, Ausbildungsinstitute und Unternehmen.',
+    ctaText: 'Anfrage',
+    ctaHref: '#kontakt',
+  },
+};
 
 const processCostContent = {
   process: {
-    eyebrow: "Ablauf",
-    title: "Der Weg zur Zusammenarbeit",
+    eyebrow: 'Ablauf',
+    title: 'Der Weg zur Zusammenarbeit',
     steps: [
-      { title: "Kontaktaufnahme", description: "Nehmen Sie per E-Mail (bevorzugt) Kontakt zu mir auf oder hinterlassen Sie eine Nachricht auf meinem Anrufbeantworter." },
-      { title: "Erstgespräch (Sprechstunde)", description: "In 50 Minuten lernen wir uns kennen und klären, ob wir zusammenpassen." },
-      { title: "Kennenlernphase (Probatorik)", description: "In 2–4 Sitzungen vertiefen wir das Verständnis und entwickeln Ziele." },
-      { title: "Therapiephase", description: "Akut-, Kurz- oder Langzeittherapie – je nach Ihrem Bedarf." }
-    ]
-  },
-  costs: {
-    eyebrow: "Kosten",
-    title: "Honorar & Sitzungen",
-    items: [
-      { label: "Gesetzliche Krankenversicherung", price: "Kosten werden vollständig übernommen" },
-      { label: "Private Krankenversicherung & Beihilfe", price: "Je nach Tarif" },
-      { label: "Selbstzahler:innen", price: "GOP<br><small>(Gebührenordnung für Psychotherapeuten)</small>" },
-      { label: "Coaching (50 Min.)", price: "200 EUR (inkl. MwSt.)" },
-      { label: "Workshops & Seminare", price: "Nach Vereinbarung" }
-    ],
-    note: "Als zugelassener Therapeut rechne ich direkt mit Ihrer gesetzlichen Krankenkasse ab. Bei privater Versicherung klären Sie die Kostenübernahme bitte vorab mit Ihrer Versicherung."
-  }
-}
-
-const approachContent = {
-  eyebrow: "Ansatz",
-  title: "Meine Arbeitsweise",
-  description: "Eine wirksame Therapie verbindet für mich zwei Ebenen: ein tiefes Verständnis für Ihre Geschichte und die konkrete Veränderung im Hier und Jetzt. Mein Ziel ist eine fundierte Begleitung auf Augenhöhe, die Ihnen die nötige Struktur und Ruhe gibt, um Ihre Handlungsfähigkeit und Lebensqualität nachhaltig zurückzugewinnen.",
-  main: {
-    label: "Hauptverfahren",
-    title: "Moderne Kognitive Verhaltenstherapie",
-    description: "Die Basis meiner Arbeit ist die Kognitive Verhaltenstherapie (KVT) – ein wissenschaftlich fundiertes Verfahren, das für seine Transparenz und hohe Wirksamkeit bekannt ist. Entgegen dem Vorurteil, die KVT sei \u201Eoberflächlich\u201C oder konzentriere sich nur auf Symptome, zeigt die moderne Forschung: Ihre Effekte sind tiefgreifend und setzen an der Wurzel unseres Erlebens an.",
-    items: [
       {
-        title: "Perspektiven und Erleben",
-        text: "Im Zentrum stehen Ihre inneren Bewertungsmuster. Das bedeutet nicht, dass belastende Ereignisse oder Lebensumstände nicht schwer wiegen – im Gegenteil: Ihr Erleben und Ihre Belastung haben ihre volle Berechtigung. Doch oft entwickeln wir im Laufe des Lebens automatische Muster im Denken und Fühlen, die uns in schwierigen Phasen festsetzen können. Wir analysieren gemeinsam, wie diese Überzeugungen entstanden sind und warum sie Ihnen heute vielleicht im Weg stehen."
+        title: 'Kontaktaufnahme',
+        description:
+          'Nehmen Sie per E-Mail (bevorzugt) Kontakt zu mir auf oder hinterlassen Sie eine Nachricht auf meinem Anrufbeantworter.',
       },
       {
-        title: "Vom Verstehen zum Handeln",
-        text: "Ein tiefes Verständnis der eigenen Geschichte ist wichtig, doch: Verstehen allein führt selten zur Veränderung. Wirkliche Erleichterung entsteht erst, wenn wir den Mut finden, im Hier und Jetzt neue Erfahrungen zu machen. Das Gehirn lernt durch Erleben: Nachhaltige Veränderung braucht neue Wege im Alltag. Wir entwickeln daher gemeinsam konkrete Strategien, mit denen Sie Ihre Handlungsfähigkeit Schritt für Schritt zurückgewinnen und langjährige Blockaden lösen können."
-      }
-    ]
+        title: 'Erstgespräch (Sprechstunde)',
+        description:
+          'In 50 Minuten lernen wir uns kennen und klären, ob wir zusammenpassen.',
+      },
+      {
+        title: 'Kennenlernphase (Probatorik)',
+        description:
+          'In 2–4 Sitzungen vertiefen wir das Verständnis und entwickeln Ziele.',
+      },
+      {
+        title: 'Therapiephase',
+        description:
+          'Akut-, Kurz- oder Langzeittherapie – je nach Ihrem Bedarf.',
+      },
+    ],
+  },
+  costs: {
+    eyebrow: 'Kosten',
+    title: 'Honorar & Sitzungen',
+    items: [
+      {
+        label: 'Gesetzliche Krankenversicherung',
+        price: 'Kosten werden vollständig übernommen',
+      },
+      {
+        label: 'Private Krankenversicherung & Beihilfe',
+        price: 'Je nach Tarif',
+      },
+      {
+        label: 'Selbstzahler:innen',
+        price: 'GOP<br><small>(Gebührenordnung für Psychotherapeuten)</small>',
+      },
+      { label: 'Coaching (50 Min.)', price: '200 EUR (inkl. MwSt.)' },
+      { label: 'Workshops & Seminare', price: 'Nach Vereinbarung' },
+    ],
+    note: 'Als zugelassener Therapeut rechne ich direkt mit Ihrer gesetzlichen Krankenkasse ab. Bei privater Versicherung klären Sie die Kostenübernahme bitte vorab mit Ihrer Versicherung.',
+  },
+};
+
+const approachContent = {
+  eyebrow: 'Ansatz',
+  title: 'Meine Arbeitsweise',
+  description:
+    'Eine wirksame Therapie verbindet für mich zwei Ebenen: ein tiefes Verständnis für Ihre Geschichte und die konkrete Veränderung im Hier und Jetzt. Mein Ziel ist eine fundierte Begleitung auf Augenhöhe, die Ihnen die nötige Struktur und Ruhe gibt, um Ihre Handlungsfähigkeit und Lebensqualität nachhaltig zurückzugewinnen.',
+  main: {
+    label: 'Hauptverfahren',
+    title: 'Moderne Kognitive Verhaltenstherapie',
+    description:
+      'Die Basis meiner Arbeit ist die Kognitive Verhaltenstherapie (KVT) – ein wissenschaftlich fundiertes Verfahren, das für seine Transparenz und hohe Wirksamkeit bekannt ist. Entgegen dem Vorurteil, die KVT sei \u201Eoberflächlich\u201C oder konzentriere sich nur auf Symptome, zeigt die moderne Forschung: Ihre Effekte sind tiefgreifend und setzen an der Wurzel unseres Erlebens an.',
+    items: [
+      {
+        title: 'Perspektiven und Erleben',
+        text: 'Im Zentrum stehen Ihre inneren Bewertungsmuster. Das bedeutet nicht, dass belastende Ereignisse oder Lebensumstände nicht schwer wiegen – im Gegenteil: Ihr Erleben und Ihre Belastung haben ihre volle Berechtigung. Doch oft entwickeln wir im Laufe des Lebens automatische Muster im Denken und Fühlen, die uns in schwierigen Phasen festsetzen können. Wir analysieren gemeinsam, wie diese Überzeugungen entstanden sind und warum sie Ihnen heute vielleicht im Weg stehen.',
+      },
+      {
+        title: 'Vom Verstehen zum Handeln',
+        text: 'Ein tiefes Verständnis der eigenen Geschichte ist wichtig, doch: Verstehen allein führt selten zur Veränderung. Wirkliche Erleichterung entsteht erst, wenn wir den Mut finden, im Hier und Jetzt neue Erfahrungen zu machen. Das Gehirn lernt durch Erleben: Nachhaltige Veränderung braucht neue Wege im Alltag. Wir entwickeln daher gemeinsam konkrete Strategien, mit denen Sie Ihre Handlungsfähigkeit Schritt für Schritt zurückgewinnen und langjährige Blockaden lösen können.',
+      },
+    ],
   },
   secondary: {
-    title: "Integrative Arbeitsweise",
-    description: "Kein Mensch und keine Lebenslage passt in ein starres Raster. Deshalb arbeite ich integrativ und bilde mich kontinuierlich fort. Mein Anspruch ist es, verschiedene wissenschaftlich fundierte Methoden so zu kombinieren, dass sie genau zu Ihrem Erleben passen. Dort, wo ein rein logischer Zugang an Grenzen stößt, ergänze ich die Therapie um emotionale und körperorientierte Ansätze der sogenannten \u201EDritten Welle\u201C:",
+    title: 'Integrative Arbeitsweise',
+    description:
+      'Kein Mensch und keine Lebenslage passt in ein starres Raster. Deshalb arbeite ich integrativ und bilde mich kontinuierlich fort. Mein Anspruch ist es, verschiedene wissenschaftlich fundierte Methoden so zu kombinieren, dass sie genau zu Ihrem Erleben passen. Dort, wo ein rein logischer Zugang an Grenzen stößt, ergänze ich die Therapie um emotionale und körperorientierte Ansätze der sogenannten \u201EDritten Welle\u201C:',
     methods: [
-      { title: "Schematherapie", text: "Tief verwurzelte Lebensmuster und Prägungen verstehen und verändern – besonders wenn belastende Erfahrungen aus der Vergangenheit nachwirken." },
-      { title: "Emotionsfokussierte & Körperpsychotherapeutische Ansätze", text: "Um den Zugang zum eigenen Erleben zu stärken und emotionale Blockaden spürbar zu lösen." },
-      { title: "ACT & Compassion Focused Therapy (CFT)", text: "Zur Förderung von Akzeptanz und der Entwicklung eines stabilisierenden, mitfühlenden Umgangs mit sich selbst." },
-      { title: "IRRT (Imagery Rescripting)", text: "Zur emotionalen Neubewertung belastender Erinnerungen mithilfe innerer Bilder." }
-    ]
-  }
-}
+      {
+        title: 'Schematherapie',
+        text: 'Tief verwurzelte Lebensmuster und Prägungen verstehen und verändern – besonders wenn belastende Erfahrungen aus der Vergangenheit nachwirken.',
+      },
+      {
+        title: 'Emotionsfokussierte & Körperpsychotherapeutische Ansätze',
+        text: 'Um den Zugang zum eigenen Erleben zu stärken und emotionale Blockaden spürbar zu lösen.',
+      },
+      {
+        title: 'ACT & Compassion Focused Therapy (CFT)',
+        text: 'Zur Förderung von Akzeptanz und der Entwicklung eines stabilisierenden, mitfühlenden Umgangs mit sich selbst.',
+      },
+      {
+        title: 'IRRT (Imagery Rescripting)',
+        text: 'Zur emotionalen Neubewertung belastender Erinnerungen mithilfe innerer Bilder.',
+      },
+    ],
+  },
+};
 
 const contactContent = {
-  title: "Kontakt",
-  introText: "Am besten erreichen Sie mich per E-Mail. Für ein Erstgespräch können Sie auch die Terminservicestelle (116117) nutzen.",
-  email: "praxis@manuelmennig.de",
-  phone: "+4915153789326",
-  phoneDisplay: "0151 – 537 893 26",
-  address: "Okerstr. 12, 12049 Berlin",
-  addressLink: "https://www.openstreetmap.org/search?query=Okerstr.+12%2C+12049+Berlin"
-}
+  title: 'Kontakt',
+  introText:
+    'Am besten erreichen Sie mich per E-Mail. Für ein Erstgespräch können Sie auch die Terminservicestelle (116117) nutzen.',
+  email: 'praxis@manuelmennig.de',
+  phone: '+4915153789326',
+  phoneDisplay: '0151 – 537 893 26',
+  address: 'Okerstr. 12, 12049 Berlin',
+  addressLink:
+    'https://www.openstreetmap.org/search?query=Okerstr.+12%2C+12049+Berlin',
+};
 ---
 
-<BaseLayout title = "Home Page">
-    <Hero {...heroContent} />
-    <Quote {...quoteContent} />
-    <About {...aboutContent} />
-    <Approach {...approachContent} />
-    <Services {...servicesContent} />
-    <ProcessCost {...processCostContent} />
-    <Contact {...contactContent} />
+<BaseLayout title="Home Page">
+  <Hero {...heroContent} />
+  <Quote {...quoteContent} />
+  <About {...aboutContent} />
+  <Approach {...approachContent} />
+  <Services {...servicesContent} />
+  <ProcessCost {...processCostContent} />
+  <Contact {...contactContent} />
 </BaseLayout>

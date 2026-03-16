@@ -1,192 +1,197 @@
 ---
 interface Props {
-    eyebrow: string;
+  eyebrow: string;
+  title: string;
+  psychotherapie: {
+    label: string;
     title: string;
-    psychotherapie: {
-        label: string;
-        title: string;
-        description: string;
-        subsections: {
-            title: string;
-            text: string;
-            note?: string;
-        }[];
-    };
-    coaching: {
-        label: string;
-        title: string;
-        description: string;
-        items: {
-            title: string;
-            content: string;
-        }[];
-    };
-    seminare: {
-        label: string;
-        title: string;
-        description: string;
-        ctaText: string;
-        ctaHref: string;
-    };
+    description: string;
+    subsections: {
+      title: string;
+      text: string;
+      note?: string;
+    }[];
+  };
+  coaching: {
+    label: string;
+    title: string;
+    description: string;
+    items: {
+      title: string;
+      content: string;
+    }[];
+  };
+  seminare: {
+    label: string;
+    title: string;
+    description: string;
+    ctaText: string;
+    ctaHref: string;
+  };
 }
 
 const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
 ---
+
 <section class="section section-services" id="angebote">
-    <div class="container">
-        <p class="eyebrow">{eyebrow}</p>
-        <h2>{title}</h2>
+  <div class="container">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
 
     <div class="bento-grid">
-        <!-- Psychotherapie -->
-        <div class="bento-card bento-card--large">
-            <p class="eyebrow card-eyebrow">{psychotherapie.label}</p>
-            <h3 class="card-title">{psychotherapie.title}</h3>
-            <p class="card-text">{psychotherapie.description}</p>
-            <div class="card-content">
-                {psychotherapie.subsections.map((sub, index) => (
-                    <div class={`subsection ${index > 0 ? 'subsection-secondary' : ''}`}>
-                        <h4>{sub.title}</h4>
-                        <p>{sub.text}</p>
-                        {sub.note && <p class="subsection-note">{sub.note}</p>}
-                    </div>
-                ))}
-            </div>
+      <!-- Psychotherapie -->
+      <div class="bento-card bento-card--large">
+        <p class="eyebrow card-eyebrow">{psychotherapie.label}</p>
+        <h3 class="card-title">{psychotherapie.title}</h3>
+        <p class="card-text">{psychotherapie.description}</p>
+        <div class="card-content">
+          {
+            psychotherapie.subsections.map((sub, index) => (
+              <div
+                class={`subsection ${index > 0 ? 'subsection-secondary' : ''}`}
+              >
+                <h4>{sub.title}</h4>
+                <p>{sub.text}</p>
+                {sub.note && <p class="subsection-note">{sub.note}</p>}
+              </div>
+            ))
+          }
         </div>
-        <!-- Coaching -->
-        <div class="bento-card bento-card--small">
-            <p class="eyebrow card-eyebrow">{coaching.label}</p>
-            <h3 class="card-title">{coaching.title}</h3>
-            <p>{coaching.description}</p>
-            <div class="accordion">
-                {coaching.items.map((item) => (
-                    <div class="accordion-item">
-                        <button class="accordion-btn" aria-expanded="false">
-                            {item.title}
-                            <span class="accordion-icon">+</span>
-                        </button>
-                        <div class="accordion-body">
-                            <p>{item.content}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
+      </div>
+      <!-- Coaching -->
+      <div class="bento-card bento-card--small">
+        <p class="eyebrow card-eyebrow">{coaching.label}</p>
+        <h3 class="card-title">{coaching.title}</h3>
+        <p>{coaching.description}</p>
+        <div class="accordion">
+          {
+            coaching.items.map((item) => (
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  {item.title}
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                  <p>{item.content}</p>
+                </div>
+              </div>
+            ))
+          }
         </div>
-        <!-- Seminare -->
-        <div class="bento-card bento-card--small-secondary">
-            <p class="eyebrow card-eyebrow">{seminare.label}</p>
-            <h3 class="card-title">{seminare.title}</h3>
-            <p>{seminare.description}</p>
-            <a href={seminare.ctaHref} class="cta-link">
-                {seminare.ctaText}
-                <span>→</span>
-            </a>
-        </div>
+      </div>
+      <!-- Seminare -->
+      <div class="bento-card bento-card--small-secondary">
+        <p class="eyebrow card-eyebrow">{seminare.label}</p>
+        <h3 class="card-title">{seminare.title}</h3>
+        <p>{seminare.description}</p>
+        <a href={seminare.ctaHref} class="cta-link">
+          {seminare.ctaText}
+          <span>→</span>
+        </a>
+      </div>
     </div>
-    </div>
+  </div>
 </section>
 
 <style>
-/* Bento Grid */
-.bento-grid {
+  /* Bento Grid */
+  .bento-grid {
     display: grid;
     gap: var(--sp-6);
-}
-@media (min-width: 768px) {
-      .bento-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto auto;
-      }
+  }
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
     }
+  }
 
+  .bento-card {
+    padding: var(--sp-8);
+    border: 1px solid var(--border);
+    background-color: var(--card);
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
     .bento-card {
-      padding: var(--sp-8);
-      border: 1px solid var(--border);
-      background-color: var(--card);
-      display: flex;
-      flex-direction: column;
+      padding: var(--sp-10);
     }
+  }
 
-    @media (min-width: 768px) {
-      .bento-card {
-        padding: var(--sp-10);
-      }
-    }
+  .bento-card--large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
 
+  @media (min-width: 768px) {
     .bento-card--large {
-      grid-column: span 1;
-      grid-row: span 1;
+      grid-column: span 2;
+      grid-row: span 2;
     }
+  }
 
-    @media (min-width: 768px) {
-      .bento-card--large {
-        grid-column: span 2;
-        grid-row: span 2;
-      }
-    }
+  .bento-card--small-secondary {
+    background-color: var(--secondary);
+  }
+  .card-text {
+    margin-bottom: var(--sp-6);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: var(--sp-6);
+  }
+  .subsection {
+    padding-top: var(--sp-4);
+    margin-bottom: var(--sp-6);
+  }
 
-    .bento-card--small-secondary {
-        background-color: var(--secondary);
-    }
-    .card-text {
-        margin-bottom: var(--sp-6);
-        border-bottom: 2px solid var(--border);
-        padding-bottom: var(--sp-6);
-    }
-    .subsection {
-      padding-top: var(--sp-4); 
-      margin-bottom: var(--sp-6);
-    }
+  .subsection-secondary {
+    border-top: 1px solid var(--border);
+  }
 
-    .subsection-secondary {
-        border-top: 1px solid var(--border);
-    }
-
-    .subsection:last-child {
-      margin-bottom: 0;
-    }
-    .subsection h4 {
-      margin-bottom: var(--sp-3);
+  .subsection:last-child {
+    margin-bottom: 0;
+  }
+  .subsection h4 {
+    margin-bottom: var(--sp-3);
   }
 
   .subsection-note {
-      margin-top: var(--sp-3);
-      color: var(--accent);
+    margin-top: var(--sp-3);
+    color: var(--accent);
   }
-                                                             
+
   .cta-link {
-      display: inline-flex;
-      align-items: center;
-      font-size: var(--text-sm);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-top: auto;
-      padding: var(--sp-3) 0;
-      min-height: 44px;
-      color: inherit;
-      text-decoration: none;
-      transition: opacity 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: auto;
+    padding: var(--sp-3) 0;
+    min-height: 44px;
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
   }
 
   .cta-link:hover {
-      opacity: 0.7;
+    opacity: 0.7;
   }
 
   .cta-link span {
-      margin-left: var(--sp-2);
+    margin-left: var(--sp-2);
   }
 
+  .card-eyebrow {
+    text-align: left;
+  }
+  .card-title {
+    margin-bottom: var(--sp-4);
+  }
 
-
-    .card-eyebrow {
-        text-align: left;
-    }
-    .card-title {
-        margin-bottom: var(--sp-4);
-    }
-
-      /* Accordion (base styles in global.css) */
+  /* Accordion (base styles in global.css) */
   .accordion {
-      margin-top: auto;
+    margin-top: auto;
   }
 </style>

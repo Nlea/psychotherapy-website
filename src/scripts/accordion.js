@@ -1,4 +1,4 @@
-document.querySelectorAll('.accordion-btn').forEach(button => {
+document.querySelectorAll('.accordion-btn').forEach((button) => {
   button.addEventListener('click', () => {
     const item = button.parentElement;
     if (!item) return;
@@ -7,7 +7,7 @@ document.querySelectorAll('.accordion-btn').forEach(button => {
 
     // close all items within the same accordion
     const accordion = item.closest('.accordion');
-    accordion.querySelectorAll('.accordion-item').forEach(i => {
+    accordion.querySelectorAll('.accordion-item').forEach((i) => {
       i.classList.remove('active');
       i.querySelector('.accordion-btn')?.setAttribute('aria-expanded', 'false');
     });

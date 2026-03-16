@@ -1,66 +1,67 @@
 :root {
-    /* Colour Palette - hex fallbacks for older browsers */
-    --background: #F5F7F8;
-    --foreground: #2C363D;
-    --card: #FAFBFC;                                                                                     
-    --card-foreground: #2C363D;                                                                          
-    --secondary: #EEF1F3;                                                                                
-    --secondary-foreground: #4D5C67;                                                                     
-    --muted: #E2E7EB;                                                                                    
-    --muted-foreground: #546570;                                                                         
-    --border: #D1D8DD;                                                                                   
-    --accent: #8A6B5B;                                                                                   
-    --accent-light: #B8A090;
+  /* Colour Palette - hex fallbacks for older browsers */
+  --background: #f5f7f8;
+  --foreground: #2c363d;
+  --card: #fafbfc;
+  --card-foreground: #2c363d;
+  --secondary: #eef1f3;
+  --secondary-foreground: #4d5c67;
+  --muted: #e2e7eb;
+  --muted-foreground: #546570;
+  --border: #d1d8dd;
+  --accent: #8a6b5b;
+  --accent-light: #b8a090;
 
+  /* Typography */
+  --font-sans: 'Jost', sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
 
-    /* Typography */
-    --font-sans: 'Jost', sans-serif;
-    --font-serif: 'Cormorant Garamond', Georgia, serif;
+  /* Type Scale */
+  --text-sm: 0.875rem; /* 14px - eyebrows, captions, buttons, meta */
 
-    /* Type Scale */
-    --text-sm: 0.875rem;    /* 14px - eyebrows, captions, buttons, meta */
-
-    /* Spacing */
-    --sp-1: 0.25rem;
-    --sp-2: 0.5rem;
-    --sp-3: 0.75rem;
-    --sp-4: 1rem;
-    --sp-5: 1.25rem;
-    --sp-6: 1.5rem;
-    --sp-8: 2rem;
-    --sp-10: 2.5rem;
-    --sp-12: 3rem;
-    --sp-16: 4rem;
-    --sp-20: 5rem;
-    --sp-24: 6rem;
-    --sp-32: 8rem;
-
+  /* Spacing */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+  --sp-32: 8rem;
 }
 
 /* Modern browsers get oklch colors */
-@supports (color: oklch(0 0 0)) {                                                                        
-  :root {                                                                                                
-    --background: oklch(0.975 0.003 228.8);         /* #F5F7F8 */                                        
-    --foreground: oklch(0.327 0.018 238.7);         /* #2C363D */                                        
-    --card: oklch(0.985 0.002 230);                 /* #FAFBFC */                                        
-    --card-foreground: oklch(0.327 0.018 238.7);    /* #2C363D */                                        
-    --secondary: oklch(0.956 0.004 236.5);          /* #EEF1F3 */                                        
-    --secondary-foreground: oklch(0.466 0.026 239.9); /* #4D5C67 */                                      
-    --muted: oklch(0.925 0.008 241.7);              /* #E2E7EB */                                        
-    --muted-foreground: oklch(0.497 0.027 236.5);   /* #546570 */                                        
-    --border: oklch(0.878 0.01 238.5);              /* #D1D8DD */                                        
-    --accent: oklch(0.554 0.047 48.6);              /* #8A6B5B */                                        
-    --accent-light: oklch(0.723 0.036 55.7);        /* #B8A090 */                                        
-  }                                                                                                      
-} 
+@supports (color: oklch(0 0 0)) {
+  :root {
+    --background: oklch(0.975 0.003 228.8); /* #F5F7F8 */
+    --foreground: oklch(0.327 0.018 238.7); /* #2C363D */
+    --card: oklch(0.985 0.002 230); /* #FAFBFC */
+    --card-foreground: oklch(0.327 0.018 238.7); /* #2C363D */
+    --secondary: oklch(0.956 0.004 236.5); /* #EEF1F3 */
+    --secondary-foreground: oklch(0.466 0.026 239.9); /* #4D5C67 */
+    --muted: oklch(0.925 0.008 241.7); /* #E2E7EB */
+    --muted-foreground: oklch(0.497 0.027 236.5); /* #546570 */
+    --border: oklch(0.878 0.01 238.5); /* #D1D8DD */
+    --accent: oklch(0.554 0.047 48.6); /* #8A6B5B */
+    --accent-light: oklch(0.723 0.036 55.7); /* #B8A090 */
+  }
+}
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -82,13 +83,13 @@ body {
   color: var(--foreground);
   background: var(--background);
   line-height: 1.7;
-  -webkit-font-smoothing: antialiased;                                                                 
-  -moz-osx-font-smoothing: grayscale; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   display: flex;
   flex-direction: column;
 }
 
-main{
+main {
   flex: 1;
   padding-top: var(--sp-20);
 }
@@ -98,7 +99,12 @@ main{
 }
 
 /* Typography Scale */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
   font-weight: 300;
   line-height: 1.2;
@@ -155,18 +161,16 @@ p {
 .btn {
   display: inline-block;
   padding: 0.875rem 2rem;
-  min-height: 44px;                                                                                   
-  font-size: var(--text-sm);                                                                                      
-  font-weight: 400;                                                                                        
-  text-transform: uppercase;                                                                               
-  letter-spacing: 0.15em;                                                                                  
-  color: var(--background);                                                                                
-  background: var(--foreground);                                                                           
-  text-decoration: none;                                                                                   
-  transition: all 0.2s ease; 
-} 
-
-
+  min-height: 44px;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--background);
+  background: var(--foreground);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
 
 .btn:hover {
   background: var(--secondary-foreground);
@@ -187,8 +191,8 @@ section {
   section {
     padding: var(--sp-32) var(--sp-6);
   }
-}                                                                                                        
-                                                                                                         
+}
+
 /* Container for max-width/centering */
 .container {
   max-width: 1000px;
@@ -197,45 +201,45 @@ section {
 
 /* Accordion */
 .accordion-item {
-    border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .accordion-btn {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--sp-4) 0;
-    min-height: 44px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: var(--text-sm);
-    text-align: left;
-    font-family: inherit;
-    color: var(--foreground);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sp-4) 0;
+  min-height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--text-sm);
+  text-align: left;
+  font-family: inherit;
+  color: var(--foreground);
 }
 
 .accordion-btn:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .accordion-icon {
-    transition: transform 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .accordion-body {
-    display: none;
+  display: none;
 }
 
 .accordion-item.active .accordion-body {
-    display: block;
-    padding-bottom: var(--sp-3);
-    font-size: var(--text-sm);
+  display: block;
+  padding-bottom: var(--sp-3);
+  font-size: var(--text-sm);
 }
 
 .accordion-item.active .accordion-icon {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 @keyframes reveal {
@@ -250,7 +254,9 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }

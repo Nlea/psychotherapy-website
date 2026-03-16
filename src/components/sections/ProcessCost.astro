@@ -1,201 +1,205 @@
 ---
 interface Props {
-    process: {
-        eyebrow: string;
-        title: string;
-        steps: { title: string; description: string; }[];
-    };
-    costs: {
-        eyebrow: string;
-        title: string;
-        items: { label: string; price: string; }[];
-        note: string;
-    };
+  process: {
+    eyebrow: string;
+    title: string;
+    steps: { title: string; description: string }[];
+  };
+  costs: {
+    eyebrow: string;
+    title: string;
+    items: { label: string; price: string }[];
+    note: string;
+  };
 }
 
 const { process, costs } = Astro.props;
 ---
 
 <section class="process-cost" id="ablauf-kosten">
-    <div class="container">
-        <div class="process-grid">
+  <div class="container">
+    <div class="process-grid">
+      <!-- Linke Spalte: Ablauf -->
+      <div class="process-steps">
+        <p class="eyebrow process-eyebrow">{process.eyebrow}</p>
+        <h2>{process.title}</h2>
 
-            <!-- Linke Spalte: Ablauf -->
-            <div class="process-steps">
-                <p class="eyebrow process-eyebrow">{process.eyebrow}</p>
-                <h2>{process.title}</h2>
-
-                <div class="steps">
-                    {process.steps.map((step, index) => (
-                        <div class="step">
-                            <div class="step-number">{index + 1}</div>
-                            <div class="step-content">
-                                <h3>{step.title}</h3>
-                                <p>{step.description}</p>
-                            </div>
-                        </div>
-                    ))}
+        <div class="steps">
+          {
+            process.steps.map((step, index) => (
+              <div class="step">
+                <div class="step-number">{index + 1}</div>
+                <div class="step-content">
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
                 </div>
-            </div>
-
-            <!-- Rechte Spalte: Kosten -->
-            <div class="costs-card">
-                <p class="eyebrow process-eyebrow">{costs.eyebrow}</p>
-                <h2>{costs.title}</h2>
-
-                <div class="price-list">
-                    {costs.items.map((item, index) => (
-                        <div class={`price-item ${index === costs.items.length - 1 ? 'price-item--last' : ''}`}>
-                            <span>{item.label}</span>
-                            <span class="price" set:html={item.price} />
-                        </div>
-                    ))}
-                </div>
-
-                <p class="costs-note">{costs.note}</p>
-            </div>
-
+              </div>
+            ))
+          }
         </div>
+      </div>
+
+      <!-- Rechte Spalte: Kosten -->
+      <div class="costs-card">
+        <p class="eyebrow process-eyebrow">{costs.eyebrow}</p>
+        <h2>{costs.title}</h2>
+
+        <div class="price-list">
+          {
+            costs.items.map((item, index) => (
+              <div
+                class={`price-item ${index === costs.items.length - 1 ? 'price-item--last' : ''}`}
+              >
+                <span>{item.label}</span>
+                <span class="price" set:html={item.price} />
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="costs-note">{costs.note}</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
-    .process-cost {
-        background: var(--secondary);
-    }
+  .process-cost {
+    background: var(--secondary);
+  }
 
-    /* Grid Layout */
+  /* Grid Layout */
+  .process-grid {
+    display: grid;
+    gap: var(--sp-12);
+  }
+
+  @media (min-width: 768px) {
     .process-grid {
-        display: grid;
-        gap: var(--sp-12);
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-16);
     }
+  }
 
-    @media (min-width: 768px) {
-        .process-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: var(--sp-16);
-        }
-    }
+  /* Process Steps */
+  .process-steps {
+    padding-top: var(--sp-8);
+  }
 
-    /* Process Steps */
+  @media (min-width: 768px) {
     .process-steps {
-        padding-top: var(--sp-8);
+      padding-top: var(--sp-10);
     }
+  }
 
-    @media (min-width: 768px) {
-        .process-steps {
-            padding-top: var(--sp-10);
-        }
-    }
+  /* Eyebrow Override */
+  .process-eyebrow {
+    text-align: left;
+    margin-bottom: var(--sp-4);
+  }
 
-    /* Eyebrow Override */
-    .process-eyebrow {
-        text-align: left;
-        margin-bottom: var(--sp-4);
-    }
+  /* Steps */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-8);
+    margin-top: var(--sp-10);
+  }
 
-    /* Steps */
-    .steps {
-        display: flex;
-        flex-direction: column;
-        gap: var(--sp-8);
-        margin-top: var(--sp-10);
-    }
+  .step {
+    display: flex;
+    gap: var(--sp-5);
+  }
 
-    .step {
-        display: flex;
-        gap: var(--sp-5);
-    }
+  .step-number {
+    flex-shrink: 0;
+    width: var(--sp-10);
+    height: var(--sp-10);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background);
+    border: 1px solid var(--border);
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+  }
 
-    .step-number {
-        flex-shrink: 0;
-        width: var(--sp-10);
-        height: var(--sp-10);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--background);
-        border: 1px solid var(--border);
-        font-family: var(--font-serif);
-        font-size: 1.125rem;
-    }
+  .step-content {
+    padding-top: var(--sp-1);
+  }
 
-    .step-content {
-        padding-top: var(--sp-1);
-    }
+  /* Costs Card */
+  .costs-card {
+    background: var(--card);
+    padding: var(--sp-8);
+    height: fit-content;
+  }
 
-    /* Costs Card */
+  @media (min-width: 768px) {
     .costs-card {
-        background: var(--card);
-        padding: var(--sp-8);
-        height: fit-content;
+      padding: var(--sp-10);
     }
+  }
 
-    @media (min-width: 768px) {
-        .costs-card {
-            padding: var(--sp-10);
-        }
-    }
+  .process-steps h2,
+  .costs-card h2 {
+    text-align: left;
+  }
 
-    .process-steps h2,
-    .costs-card h2 {
-        text-align: left;
-    }
+  /* Price List */
+  .price-list {
+    display: flex;
+    flex-direction: column;
+  }
 
-    /* Price List */
-    .price-list {
-        display: flex;
-        flex-direction: column;
-    }
+  .price-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-4) 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted-foreground);
+  }
 
+  @media (min-width: 768px) {
     .price-item {
-        display: flex;
-        flex-direction: column;
-        gap: var(--sp-1);
-        padding: var(--sp-4) 0;
-        border-bottom: 1px solid var(--border);
-        color: var(--muted-foreground);
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--sp-4);
     }
+  }
 
-    @media (min-width: 768px) {
-        .price-item {
-            flex-direction: row;
-            justify-content: space-between;
-            gap: var(--sp-4);
-        }
-    }
+  .price-item span:first-child {
+    flex: 1;
+  }
 
-    .price-item span:first-child {
-        flex: 1;
-    }
+  .price-item--last {
+    border-bottom: none;
+  }
 
-    .price-item--last {
-        border-bottom: none;
-    }
+  .price {
+    font-weight: 400;
+    color: var(--accent);
+    text-align: left;
+  }
 
+  @media (min-width: 768px) {
     .price {
-        font-weight: 400;
-        color: var(--accent);
-        text-align: left;
+      flex-basis: 40%;
+      flex-shrink: 1;
     }
+  }
 
-    @media (min-width: 768px) {
-        .price {
-            flex-basis: 40%;
-            flex-shrink: 1;
-        }
-    }
+  .price small {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+  }
 
-    .price small {
-        font-size: 0.75rem;
-        color: var(--muted-foreground);
-    }
-
-    /* Costs Note */
-    .costs-note {
-        margin-top: var(--sp-8);
-        padding-top: var(--sp-6);
-        border-top: 1px solid var(--border);
-    }
+  /* Costs Note */
+  .costs-note {
+    margin-top: var(--sp-8);
+    padding-top: var(--sp-6);
+    border-top: 1px solid var(--border);
+  }
 </style>

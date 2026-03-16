@@ -1,106 +1,111 @@
 ---
 interface Props {
-    eyebrow: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  main: {
+    label: string;
     title: string;
     description: string;
-    main: {
-        label: string;
-        title: string;
-        description: string;
-        items: {
-            title: string;
-            text: string;
-        }[];
-    };
-    secondary: {
-        title: string;
-        description: string;
-        methods: {
-            title: string;
-            text: string;
-        }[];
-    };
+    items: {
+      title: string;
+      text: string;
+    }[];
+  };
+  secondary: {
+    title: string;
+    description: string;
+    methods: {
+      title: string;
+      text: string;
+    }[];
+  };
 }
 
 const { eyebrow, title, description, main, secondary } = Astro.props;
 ---
+
 <section class="approach" id="ansatz">
-    <div class="container">
-        <div class="approach-intro">
-            <p class="eyebrow">{eyebrow}</p>
-            <h2>{title}</h2>
-            <p>{description}</p>
-        </div>
-
-        <div class="approach-box main-approach">
-            <div class="approach-header">
-                <p class="eyebrow approach-header-eyebrow">{main.label}</p>
-                <h3>{main.title}</h3>
-                <p>{main.description}</p>
-            </div>
-            {main.items.map((item) => (
-                <div class="approach-item">
-                    <h4>{item.title}</h4>
-                    <p>{item.text}</p>
-                </div>
-            ))}
-        </div>
-
-        <div class="approach-box secondary-approach">
-            <div class="secondary-approach-header">
-                <h3>{secondary.title}</h3>
-                <p>{secondary.description}</p>
-            </div>
-            <div class="secondary-approach-items">
-                <div class="accordion">
-                    {secondary.methods.map((method) => (
-                        <div class="accordion-item">
-                            <button class="accordion-btn" aria-expanded="false">
-                                {method.title}
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-body">
-                                <p>{method.text}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="approach-intro">
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+      <p>{description}</p>
     </div>
+
+    <div class="approach-box main-approach">
+      <div class="approach-header">
+        <p class="eyebrow approach-header-eyebrow">{main.label}</p>
+        <h3>{main.title}</h3>
+        <p>{main.description}</p>
+      </div>
+      {
+        main.items.map((item) => (
+          <div class="approach-item">
+            <h4>{item.title}</h4>
+            <p>{item.text}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="approach-box secondary-approach">
+      <div class="secondary-approach-header">
+        <h3>{secondary.title}</h3>
+        <p>{secondary.description}</p>
+      </div>
+      <div class="secondary-approach-items">
+        <div class="accordion">
+          {
+            secondary.methods.map((method) => (
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  {method.title}
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                  <p>{method.text}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <style>
-    .approach {
-        background: var(--secondary);
-    }
-    .approach-box {
-      display: grid;
-      grid-template-columns: 1fr;
-      row-gap: var(--sp-6);
-      column-gap: var(--sp-12);
-      padding: var(--sp-8);
-      border: 1px solid var(--border);
-      margin-bottom: var(--sp-10);
+  .approach {
+    background: var(--secondary);
+  }
+  .approach-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: var(--sp-6);
+    column-gap: var(--sp-12);
+    padding: var(--sp-8);
+    border: 1px solid var(--border);
+    margin-bottom: var(--sp-10);
   }
 
   @media (min-width: 768px) {
-      .approach-box {
-          padding: var(--sp-10);
-          grid-template-columns: 1fr 1fr;
-      }
+    .approach-box {
+      padding: var(--sp-10);
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   .main-approach {
-      background-color: var(--muted);
+    background-color: var(--muted);
   }
-  .approach-intro{
+  .approach-intro {
     margin-bottom: var(--sp-10);
-    text-align: center
+    text-align: center;
   }
 
   .approach-header {
-      grid-column: 1 / -1;  
-      margin-bottom: var(--sp-10);
+    grid-column: 1 / -1;
+    margin-bottom: var(--sp-10);
   }
   .approach-header p:not(.eyebrow) {
     max-width: 95ch;
@@ -120,10 +125,10 @@ const { eyebrow, title, description, main, secondary } = Astro.props;
   }
 
   .secondary-approach {
-      background-color: var(--background);
+    background-color: var(--background);
   }
 
   .secondary-approach-header h3 {
-      margin-bottom: var(--sp-4);
+    margin-bottom: var(--sp-4);
   }
 </style>

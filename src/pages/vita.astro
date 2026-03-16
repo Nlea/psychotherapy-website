@@ -2,169 +2,177 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const currentPosition = {
-    period: "seit 2026",
-    title: "Eigene Praxis",
-    location: "Berlin-Neukölln",
-    description: "Ambulante psychotherapeutische Versorgung"
+  period: 'seit 2026',
+  title: 'Eigene Praxis',
+  location: 'Berlin-Neukölln',
+  description: 'Ambulante psychotherapeutische Versorgung',
 };
 
 const careerHistory = [
-    {
-        period: "2024 – 2025",
-        title: "Psychotherapeut in ambulanter Praxis",
-        location: "Berlin",
-        description: "Behandlung gesetzlich versicherter Patient:innen"
-    },
-    {
-        period: "2022 – 2024",
-        title: "Vitos Klinik für Psychiatrie und Psychotherapie",
-        location: "Marburg",
-        description: "Stationäre Akutbehandlung (Schwerpunkt: Affektive Störungen), Leitung psychoedukativer Gruppen"
-    },
-    {
-        period: "2021 – 2022",
-        title: "Asklepios Fachklinik Fürstenhof",
-        location: "Bad Wildungen",
-        description: "Psychosomatische Fachabteilung, Leitung von Gruppentherapien"
-    },
-    {
-        period: "2019 – 2022",
-        title: "Lehrbeauftragter",
-        location: "Philipps-Universität Marburg",
-        description: 'Seminar „Affektive Störungen", Leitung des Interventionspraktikums'
-    },
-    {
-        period: "2018 – 2021",
-        title: "Psychotherapeut in Ausbildung",
-        location: "Psychotherapie-Ambulanz Marburg",
-        description: "Ambulante Psychotherapie unter Supervision"
-    },
-    {
-        period: "2015 – 2019",
-        title: "Promotionsstipendiat",
-        location: "Philipps-Universität Marburg",
-        description: "Abteilung für Klinische Psychologie und Psychotherapie"
-    }
+  {
+    period: '2024 – 2025',
+    title: 'Psychotherapeut in ambulanter Praxis',
+    location: 'Berlin',
+    description: 'Behandlung gesetzlich versicherter Patient:innen',
+  },
+  {
+    period: '2022 – 2024',
+    title: 'Vitos Klinik für Psychiatrie und Psychotherapie',
+    location: 'Marburg',
+    description:
+      'Stationäre Akutbehandlung (Schwerpunkt: Affektive Störungen), Leitung psychoedukativer Gruppen',
+  },
+  {
+    period: '2021 – 2022',
+    title: 'Asklepios Fachklinik Fürstenhof',
+    location: 'Bad Wildungen',
+    description: 'Psychosomatische Fachabteilung, Leitung von Gruppentherapien',
+  },
+  {
+    period: '2019 – 2022',
+    title: 'Lehrbeauftragter',
+    location: 'Philipps-Universität Marburg',
+    description:
+      'Seminar „Affektive Störungen", Leitung des Interventionspraktikums',
+  },
+  {
+    period: '2018 – 2021',
+    title: 'Psychotherapeut in Ausbildung',
+    location: 'Psychotherapie-Ambulanz Marburg',
+    description: 'Ambulante Psychotherapie unter Supervision',
+  },
+  {
+    period: '2015 – 2019',
+    title: 'Promotionsstipendiat',
+    location: 'Philipps-Universität Marburg',
+    description: 'Abteilung für Klinische Psychologie und Psychotherapie',
+  },
 ];
 ---
 
 <BaseLayout title="Vita">
-    <section class="vita-page">
-        <div class="container">
-            <header class="vita-header">
-                <h1 class="page-title">Beruflicher Werdegang</h1>
-            </header>
+  <section class="vita-page">
+    <div class="container">
+      <header class="vita-header">
+        <h1 class="page-title">Beruflicher Werdegang</h1>
+      </header>
 
-            <div class="vita-current">
-                <h2 class="vita-section-title">Aktuelle Tätigkeit</h2>
-                <div class="current-card">
-                    <span class="period">{currentPosition.period}</span>
-                    <h3>{currentPosition.title} <span class="location">· {currentPosition.location}</span></h3>
-                    <p>{currentPosition.description}</p>
-                </div>
-            </div>
-
-            <div class="vita-history">
-                <h2 class="vita-section-title">Klinische & wissenschaftliche Stationen</h2>
-                <div class="timeline">
-                    {careerHistory.map((item) => (
-                        <div class="timeline-item">
-                            <span class="period">{item.period}</span>
-                            <h3>{item.title} <span class="location">· {item.location}</span></h3>
-                            <p>{item.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
+      <div class="vita-current">
+        <h2 class="vita-section-title">Aktuelle Tätigkeit</h2>
+        <div class="current-card">
+          <span class="period">{currentPosition.period}</span>
+          <h3>
+            {currentPosition.title}
+            <span class="location">· {currentPosition.location}</span>
+          </h3>
+          <p>{currentPosition.description}</p>
         </div>
-    </section>
+      </div>
+
+      <div class="vita-history">
+        <h2 class="vita-section-title">
+          Klinische & wissenschaftliche Stationen
+        </h2>
+        <div class="timeline">
+          {
+            careerHistory.map((item) => (
+              <div class="timeline-item">
+                <span class="period">{item.period}</span>
+                <h3>
+                  {item.title} <span class="location">· {item.location}</span>
+                </h3>
+                <p>{item.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-    .vita-header{
-        text-align: center;
-    }
+  .vita-header {
+    text-align: center;
+  }
 
-    .vita-page {
+  .vita-page {
     max-width: 1152px;
     margin: 0 auto;
     padding: var(--sp-8) var(--sp-6);
   }
 
+  .vita-header {
+    margin-bottom: var(--sp-16);
+  }
 
-    .vita-header {
-        margin-bottom: var(--sp-16);
-    }
+  .vita-section-title {
+    margin-bottom: var(--sp-6);
+    text-align: left;
+  }
 
-    .vita-section-title {
-        margin-bottom: var(--sp-6);
-        text-align: left;
-    }
+  .vita-current {
+    margin-bottom: var(--sp-12);
+  }
 
-    .vita-current {
-        margin-bottom: var(--sp-12);
-    }
+  .current-card {
+    background: var(--secondary);
+    padding: var(--sp-6);
+    border-left: 3px solid var(--card-foreground);
+  }
 
-    .current-card {
-        background: var(--secondary);
-        padding: var(--sp-6);
-        border-left: 3px solid var(--card-foreground);
-    }
+  .current-card h3 {
+    margin-bottom: var(--sp-2);
+  }
 
-    .current-card h3 {
-        margin-bottom: var(--sp-2);
-    }
+  .period {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 400;
+    color: var(--card-foreground);
+    margin-bottom: var(--sp-2);
+  }
 
-    .period {
-        display: inline-block;
-        font-size: var(--text-sm);
-        font-weight: 400;
-        color: var(--card-foreground);
-        margin-bottom: var(--sp-2);
-    }
+  .location {
+    color: var(--accent);
+  }
 
-    .location {
-        color: var(--accent);
-    }
+  .vita-history {
+    margin-bottom: var(--sp-12);
+  }
 
-    .vita-history {
-        margin-bottom: var(--sp-12);
-    }
+  .timeline {
+    position: relative;
+    padding-left: var(--sp-6);
+    border-left: 1px solid var(--border);
+  }
 
-    .timeline {
-        position: relative;
-        padding-left: var(--sp-6);
-        border-left: 1px solid var(--border);
-    }
+  .timeline-item {
+    position: relative;
+    padding-bottom: var(--sp-8);
+  }
 
-    .timeline-item {
-        position: relative;
-        padding-bottom: var(--sp-8);
-    }
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
 
-    .timeline-item:last-child {
-        padding-bottom: 0;
-    }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * var(--sp-6) - 4px);
+    top: 0.25rem;
+    width: 9px;
+    height: 9px;
+    background: var(--background);
+    border: 2px solid var(--card-foreground);
+    border-radius: 50%;
+  }
 
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: calc(-1 * var(--sp-6) - 4px);
-        top: 0.25rem;
-        width: 9px;
-        height: 9px;
-        background: var(--background);
-        border: 2px solid var(--card-foreground);
-        border-radius: 50%;
-    }
+  .timeline-item h3 {
+    margin-bottom: var(--sp-1);
+  }
 
-    .timeline-item h3 {
-        margin-bottom: var(--sp-1);
-    }
-
-    .timeline-item p {
-        line-height: 1.6;
-    }
-
+  .timeline-item p {
+    line-height: 1.6;
+  }
 </style>

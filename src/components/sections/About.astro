@@ -2,194 +2,205 @@
 import { Image } from 'astro:assets';
 import aboutPhoto from '../../assets/profilePic.jpg';
 interface Props {
-    ctaText?: string;
-    ctaHref?: string;
-    aboutHeading: string;
-    aboutDescription: string;
-    aboutPoints: { title: string; text: string; }[];
-    aboutEducationList: { title: string; subtitle: string; }[];
-    aboutTrainingList: string[];
+  ctaText?: string;
+  ctaHref?: string;
+  aboutHeading: string;
+  aboutDescription: string;
+  aboutPoints: { title: string; text: string }[];
+  aboutEducationList: { title: string; subtitle: string }[];
+  aboutTrainingList: string[];
 }
 
-const { ctaText = "Vollständige Vita", ctaHref = "/vita", aboutHeading, aboutDescription, aboutPoints, aboutEducationList, aboutTrainingList } = Astro.props;
+const {
+  ctaText = 'Vollständige Vita',
+  ctaHref = '/vita',
+  aboutHeading,
+  aboutDescription,
+  aboutPoints,
+  aboutEducationList,
+  aboutTrainingList,
+} = Astro.props;
 ---
+
 <section class="about" id="ueber-mich">
-    <div class="container">
-        <div class="about-intro">
-            <p class="eyebrow">Über mich</p>
-            <h2>{aboutHeading}</h2>
-            <p>{aboutDescription}</p>
-        </div>
-        <div class="about-grid">
-            <div class="about-photo">
-                <div class="about-photo-inner">
-                    <Image src={aboutPhoto} alt="Portrait" width={800} height={800} />
-                </div>
-            </div>
-            <div class="about-points">                                                                                                          
-                <div class="prose">                                                                                                             
-                    {aboutPoints.map((point) => (                                                                                             
-                        <p>                                                                                                                   
-                            <strong>{point.title}:</strong> {point.text}
-                        </p>
-                    ))}
-                </div>
-            </div>
-        </div>  
-        <!-- Qualifications -->
-        <div class="qual-grid">
-            <div>
-                <h3 class="qual-title">Ausbildung</h3>
-                <hr class="qual-rule" />
-                {aboutEducationList.map((entry) => (
-                    <div class="edu-entry">
-                        <p class="edu-title">{entry.title}</p>
-                        <p class="edu-subtitle">{entry.subtitle}</p>
-                        <hr class="qual-rule" />
-                    </div>
-                ))}
-                <a href={ctaHref} class="vita-link">
-                    {ctaText}
-                </a>
-            </div>
-            <div>
-                <h3 class="qual-title">Weiterbildungen</h3>
-                <hr class="qual-rule" />
-                <ul class="qual-list">
-                    {aboutTrainingList.map((item) => (
-                        <li>{item}</li>
-                    ))}
-                </ul>
-            </div>
-        </div>
+  <div class="container">
+    <div class="about-intro">
+      <p class="eyebrow">Über mich</p>
+      <h2>{aboutHeading}</h2>
+      <p>{aboutDescription}</p>
     </div>
+    <div class="about-grid">
+      <div class="about-photo">
+        <div class="about-photo-inner">
+          <Image src={aboutPhoto} alt="Portrait" width={800} height={800} />
+        </div>
+      </div>
+      <div class="about-points">
+        <div class="prose">
+          {
+            aboutPoints.map((point) => (
+              <p>
+                <strong>{point.title}:</strong> {point.text}
+              </p>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <!-- Qualifications -->
+    <div class="qual-grid">
+      <div>
+        <h3 class="qual-title">Ausbildung</h3>
+        <hr class="qual-rule" />
+        {
+          aboutEducationList.map((entry) => (
+            <div class="edu-entry">
+              <p class="edu-title">{entry.title}</p>
+              <p class="edu-subtitle">{entry.subtitle}</p>
+              <hr class="qual-rule" />
+            </div>
+          ))
+        }
+        <a href={ctaHref} class="vita-link">
+          {ctaText}
+        </a>
+      </div>
+      <div>
+        <h3 class="qual-title">Weiterbildungen</h3>
+        <hr class="qual-rule" />
+        <ul class="qual-list">
+          {aboutTrainingList.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
-    .about-intro {
-        margin-bottom: var(--sp-12);
-        padding-bottom: var(--sp-8);
-        border-bottom: 1px solid var(--border);
-        text-align: center;
-    }
+  .about-intro {
+    margin-bottom: var(--sp-12);
+    padding-bottom: var(--sp-8);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
 
+  .about-grid {
+    display: grid;
+    gap: var(--sp-8);
+  }
+
+  @media (min-width: 768px) {
     .about-grid {
-            display: grid;
-            gap: var(--sp-8);
-        }
-
-        @media (min-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: var(--sp-16);
-                align-items: center;
-            }
-        }
-
-    .about-photo {
-        position: relative;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-16);
+      align-items: center;
     }
+  }
 
-    .about-photo-inner {
-            position: relative;
-            aspect-ratio: 1;
-            overflow: hidden;
-            border-radius: 50%;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-        }
+  .about-photo {
+    position: relative;
+  }
 
-        .about-photo-inner img {
-            display: block;
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transform: scale(1.02);
-        }
-        .vita-link {
-            display: inline-flex;
-            align-items: center;
-            margin-top: var(--sp-6);
-            padding: var(--sp-3) var(--sp-6);
-            min-height: 44px;
-            font-size: var(--text-sm);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: inherit;
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-            background-color: var(--muted);
-        }
+  .about-photo-inner {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
-        .vita-link:hover {
-            opacity: 0.7;
-        }
+  .about-photo-inner img {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.02);
+  }
+  .vita-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: var(--sp-6);
+    padding: var(--sp-3) var(--sp-6);
+    min-height: 44px;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    background-color: var(--muted);
+  }
 
-        .qual-grid {
-            margin-top: var(--sp-12);
-            padding-top: var(--sp-8);
-            border-top: 1px solid var(--border);
-            display: grid;
-            gap: var(--sp-8);
-        }
+  .vita-link:hover {
+    opacity: 0.7;
+  }
 
-        @media (min-width: 768px) {
-            .qual-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+  .qual-grid {
+    margin-top: var(--sp-12);
+    padding-top: var(--sp-8);
+    border-top: 1px solid var(--border);
+    display: grid;
+    gap: var(--sp-8);
+  }
 
-    .qual-title {
-        margin-bottom: var(--sp-3);
+  @media (min-width: 768px) {
+    .qual-grid {
+      grid-template-columns: 1fr 1fr;
     }
+  }
 
-    .qual-rule {
-        border: none;
-        border-top: 1px solid var(--border);
-        margin: 0;
-    }
+  .qual-title {
+    margin-bottom: var(--sp-3);
+  }
 
-    .edu-entry {
-        padding: var(--sp-4) 0;
-    }
+  .qual-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
 
-    .edu-title {
-        color: var(--foreground);
-        font-weight: 400;
-        margin-bottom: var(--sp-1);
-        line-height: 1.5;
-    }
+  .edu-entry {
+    padding: var(--sp-4) 0;
+  }
 
-    .edu-subtitle {
-        font-size: var(--text-sm);
-        color: var(--muted-foreground);
-        margin-bottom: var(--sp-4);
-    }
+  .edu-title {
+    color: var(--foreground);
+    font-weight: 400;
+    margin-bottom: var(--sp-1);
+    line-height: 1.5;
+  }
 
-    .qual-list {
-        list-style: none;
-        color: var(--muted-foreground);
-        margin-top: var(--sp-4);
-    }
+  .edu-subtitle {
+    font-size: var(--text-sm);
+    color: var(--muted-foreground);
+    margin-bottom: var(--sp-4);
+  }
 
-    .qual-list li {
-        padding: var(--sp-2) 0;
-        padding-left: var(--sp-4);
-        position: relative;
-        line-height: 1.75;
-    }
+  .qual-list {
+    list-style: none;
+    color: var(--muted-foreground);
+    margin-top: var(--sp-4);
+  }
 
-    .qual-list li::before {
-        content: '■';
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 0.5em;
-        color: var(--accent);
-    }
+  .qual-list li {
+    padding: var(--sp-2) 0;
+    padding-left: var(--sp-4);
+    position: relative;
+    line-height: 1.75;
+  }
+
+  .qual-list li::before {
+    content: '■';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.5em;
+    color: var(--accent);
+  }
 </style>

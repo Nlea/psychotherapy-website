@@ -1,27 +1,29 @@
 ---
- import Footer from '../components/common/Footer.astro';
- import Nav from '../components/common/Nav.astro'
-  import '@fontsource/jost/300.css';                                                                       
-  import '@fontsource/jost/400.css';                                                                       
-  import '@fontsource/jost/500.css';                                                                       
-  import '@fontsource/cormorant-garamond/300.css';                                                         
-  import '@fontsource/cormorant-garamond/400.css';                                                         
-  import '@fontsource/cormorant-garamond/500.css';                                                         
-  import '@fontsource/cormorant-garamond/600.css';               
-import '../styles/global.css'
+import Footer from '../components/common/Footer.astro';
+import Nav from '../components/common/Nav.astro';
+import '@fontsource/jost/300.css';
+import '@fontsource/jost/400.css';
+import '@fontsource/jost/500.css';
+import '@fontsource/cormorant-garamond/300.css';
+import '@fontsource/cormorant-garamond/400.css';
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/600.css';
+import '../styles/global.css';
 const { title } = Astro.props;
 ---
+
 <html lang="de">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
   </head>
   <body>
     <Nav />
     <main>
-      <slot /> <!-- your content is injected here -->
-      </main>
+      <slot />
+      <!-- your content is injected here -->
+    </main>
     <Footer />
     <script src="../scripts/accordion.js"></script>
   </body>
