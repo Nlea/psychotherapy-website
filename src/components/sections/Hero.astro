@@ -1,54 +1,51 @@
 ---
- interface Props {                                                                                        
-    eyebrow: string;                                                                                         
-    name: string;                                                                                          
-    //description: string;   
-    //ctaText?: string;
-    //ctaHref?: string;                                                                                                                                                                      
-  } 
-//const { eyebrow, name, description, ctaText = "Termin vereinbaren", ctaHref = "#kontakt" } = Astro.props;
+interface Props {
+  eyebrow: string;
+  name: string;
+}
+
 const { eyebrow, name } = Astro.props;
-
 ---
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">{name}</h1>
-            <p class="eyebrow">{eyebrow}</p>
 
-           <!-- <p class="hero-description">{description}</p> -->
-            <!-- <a href={ctaHref} class="btn">{ctaText}</a> -->
-        </div>
-    </section>
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">{name}</h1>
+    <p class="eyebrow">{eyebrow}</p>
+  </div>
+</section>
 
 <style>
-.hero {
+  .hero {
     min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: var(--sp-20) var(--sp-6);
     text-align: center;
-    background:
-        linear-gradient(to bottom, var(--background) 0%, #C5CED6 50%, var(--secondary) 100%);
-}
+    background: linear-gradient(
+      to bottom,
+      var(--background) 0%,
+      #c5ced6 50%,
+      var(--secondary) 100%
+    );
+  }
 
-.hero-content {
+  .hero-content {
     max-width: 48rem;
-}
+  }
 
-
-.hero-title {
+  .hero-title {
     line-height: 1.1;
     margin-bottom: var(--sp-8);
     text-wrap: balance;
-}
+  }
 
-.hero-description {
+  .hero-description {
     max-width: 36rem;
     margin: 0 auto var(--sp-10);
-}
+  }
 
-.hero-content {                                                                                          
-    animation: reveal 0.6s ease-out;                                                                       
-  }   
+  .hero-content {
+    animation: reveal 0.6s ease-out;
+  }
 </style>
