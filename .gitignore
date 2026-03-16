@@ -22,3 +22,11 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Cloudflare local cache
+.wrangler/
+
+# local tool config
+.claude/
+.fp/
+progress.md
