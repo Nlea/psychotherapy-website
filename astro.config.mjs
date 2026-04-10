@@ -12,5 +12,9 @@ export default defineConfig({
     imageService: 'passthrough',
   }),
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/impressum') && !page.includes('/datenschutz'),
+    }),
+  ],
 });
