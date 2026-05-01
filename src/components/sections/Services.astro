@@ -10,6 +10,7 @@ interface Props {
       title: string;
       text: string;
       note?: string;
+      noteHighlight?: boolean;
       ctaText?: string;
       ctaHref?: string;
     }[];
@@ -54,9 +55,19 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
               >
                 <h4>{sub.title}</h4>
                 <p>{sub.text}</p>
-                {sub.note && <p class="subsection-note">{sub.note}</p>}
+                {sub.note && (
+                  <p
+                    class={`subsection-note ${
+                      sub.noteHighlight ? 'subsection-note--highlight' : ''
+                    }`}
+                  >
+                    {sub.note}
+                  </p>
+                )}
                 {sub.ctaText && sub.ctaHref && (
-                  <a href={sub.ctaHref} class="subsection-cta">{sub.ctaText} <span>→</span></a>
+                  <a href={sub.ctaHref} class="subsection-cta">
+                    {sub.ctaText} <span>→</span>
+                  </a>
                 )}
               </div>
             ))
@@ -166,15 +177,21 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
     color: var(--accent);
   }
 
+  .subsection-note--highlight {
+    font-weight: 600;
+  }
+
   .subsection-cta {
     display: inline-flex;
     align-items: center;
     gap: var(--sp-1);
+    padding: var(--sp-3) var(--sp-6);
     margin-top: var(--sp-3);
     font-size: var(--text-sm);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: inherit;
+    color: var(--background);
+    background: var(--accent);
     text-decoration: none;
     transition: opacity 0.2s ease;
   }
