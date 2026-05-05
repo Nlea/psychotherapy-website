@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import praxisPhoto from '../../assets/praxis.jpg';
+---
+
+<section class="room" id="praxis">
+  <div class="container">
+    <div class="praxis-photo">
+      <Image src={praxisPhoto} alt="Therapieraum" width={800} height={800} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .room {
+    background: var(--background);
+    padding-top: var(--sp-0);
+    padding-bottom: var(--sp-8);
+  }
+
+  .praxis-photo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .praxis-photo img {
+    filter: saturate(75%) brightness(103%);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+  }
+</style>

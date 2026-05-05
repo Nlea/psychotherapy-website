@@ -7,6 +7,7 @@ import Services from '../components/sections/Services.astro';
 import Contact from '../components/sections/Contact.astro';
 import ProcessCost from '../components/sections/ProcessCost.astro';
 import Approach from '../components/sections/Approach.astro';
+import Room from '../components/sections/Room.astro';
 
 const heroContent = {
   eyebrow: 'Psychologischer Psychotherapeut',
@@ -236,7 +237,7 @@ const contactContent = {
 };
 ---
 
-<BaseLayout title="Home Page">
+<BaseLayout title="Dr. Manuel Mennig | Psychotherapie Berlin">
   <Hero {...heroContent} />
   <Quote {...quoteContent} />
   <About {...aboutContent} />
@@ -244,4 +245,5 @@ const contactContent = {
   <Services {...servicesContent} />
   <ProcessCost {...processCostContent} />
   <Contact {...contactContent} />
+  <Room />
 </BaseLayout>
