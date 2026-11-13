@@ -9,6 +9,7 @@ interface Props {
     subsections: {
       title: string;
       text: string;
+      showKurzgruppen?: boolean;
       note?: string;
       noteHighlight?: boolean;
       ctaText?: string;
@@ -24,6 +25,32 @@ interface Props {
       content: string;
     }[];
   };
+  adhs: {
+    label: string;
+    title: string;
+    paragraphs: string[];
+  };
+  kurzgruppen: {
+    label: string;
+    title: string;
+    description: string;
+    items: {
+      title: string;
+      content: string;
+    }[];
+    format: string;
+  };
+  psychedelika: {
+    label: string;
+    title: string;
+    paragraphs: string[];
+    listTitle: string;
+    list: {
+      title: string;
+      text: string;
+    }[];
+    closing: string[];
+  };
   seminare: {
     label: string;
     title: string;
@@ -33,7 +60,16 @@ interface Props {
   };
 }
 
-const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
+const {
+  eyebrow,
+  title,
+  psychotherapie,
+  coaching,
+  adhs,
+  kurzgruppen,
+  psychedelika,
+  seminare,
+} = Astro.props;
 ---
 
 <section class="section section-services" id="angebote">
@@ -54,7 +90,39 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
                 class={`subsection ${index > 0 ? 'subsection-secondary' : ''}`}
               >
                 <h4>{sub.title}</h4>
-                <p>{sub.text}</p>
+                <div class="subsection-text">
+                  {sub.text.split('\n\n').map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+                {sub.showKurzgruppen && (
+                  <div class="group-shortcourses">
+                    <h5>{kurzgruppen.title}</h5>
+                    <p>{kurzgruppen.description}</p>
+                    <div class="accordion accordion--inline">
+                      {kurzgruppen.items.map((item) => (
+                        <div class="accordion-item">
+                          <button class="accordion-btn" aria-expanded="false">
+                            {item.title}
+                            <span class="accordion-icon">+</span>
+                          </button>
+                          <div class="accordion-body">
+                            <p>{item.content}</p>
+                          </div>
+                        </div>
+                      ))}
+                      <div class="accordion-item">
+                        <button class="accordion-btn" aria-expanded="false">
+                          Format
+                          <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-body">
+                          <p>{kurzgruppen.format}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 {sub.note && (
                   <p
                     class={`subsection-note ${
@@ -95,8 +163,14 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
           }
         </div>
       </div>
+      <!-- ADHS Diagnostik -->
+      <div class="bento-card bento-card--small bento-card--tinted">
+        <p class="eyebrow card-eyebrow">{adhs.label}</p>
+        <h3 class="card-title">{adhs.title}</h3>
+        {adhs.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
       <!-- Seminare -->
-      <div class="bento-card bento-card--small-secondary">
+      <div class="bento-card bento-card--small">
         <p class="eyebrow card-eyebrow">{seminare.label}</p>
         <h3 class="card-title">{seminare.title}</h3>
         <p>{seminare.description}</p>
@@ -104,6 +178,29 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
           {seminare.ctaText}
           <span>→</span>
         </a>
+      </div>
+      <!-- Psychedelika-informierte Begleitung -->
+      <div class="bento-card bento-card--wide">
+        <p class="eyebrow card-eyebrow">{psychedelika.label}</p>
+        <h3 class="card-title">{psychedelika.title}</h3>
+        {psychedelika.paragraphs.map((p) => <p>{p}</p>)}
+        <p class="card-list-title">{psychedelika.listTitle}</p>
+        <div class="accordion accordion--inline">
+          {
+            psychedelika.list.map((item) => (
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  {item.title}
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        {psychedelika.closing.map((p) => <p>{p}</p>)}
       </div>
     </div>
   </div>
@@ -128,6 +225,8 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
     background-color: var(--card);
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   @media (min-width: 768px) {
@@ -144,12 +243,35 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
   @media (min-width: 768px) {
     .bento-card--large {
       grid-column: span 2;
-      grid-row: span 2;
+      grid-row: span 3;
     }
   }
 
-  .bento-card--small-secondary {
+  .bento-card--tinted {
     background-color: var(--secondary);
+  }
+
+  .group-shortcourses {
+    margin-top: var(--sp-6);
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--border);
+  }
+
+  .group-shortcourses h5 {
+    margin-bottom: var(--sp-3);
+    font-size: var(--text-lg);
+  }
+
+  .card-list-title {
+    margin-top: var(--sp-2);
+  }
+
+  .accordion.accordion--inline {
+    margin: var(--sp-3) 0 var(--sp-6);
+  }
+
+  .bento-card--wide {
+    grid-column: 1 / -1;
   }
   .card-text {
     margin-bottom: var(--sp-6);
@@ -163,6 +285,10 @@ const { eyebrow, title, psychotherapie, coaching, seminare } = Astro.props;
 
   .subsection-secondary {
     border-top: 1px solid var(--border);
+  }
+
+  .subsection-text p + p {
+    margin-top: var(--sp-4);
   }
 
   .subsection:last-child {
